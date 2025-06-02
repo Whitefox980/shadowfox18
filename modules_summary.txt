@@ -1,0 +1,422 @@
+[DEF] build_vulnerability_map (line 3)  →  from vuln_mapper import build_vulnerability_map
+[DEF] print_vuln_table (line 33)  →  from vuln_mapper import print_vuln_table
+[DEF] dynamic_import (line 5)  →  from shadow_orchestrator_graph import dynamic_import
+[DEF] resolve_args (line 11)  →  from shadow_orchestrator_graph import resolve_args
+[DEF] run_mission (line 14)  →  from shadow_orchestrator_graph import run_mission
+[DEF] print_banner (line 9)  →  from dashboard import print_banner
+[DEF] show_phase (line 12)  →  from dashboard import show_phase
+[DEF] success_phase (line 15)  →  from dashboard import success_phase
+[DEF] error_phase (line 18)  →  from dashboard import error_phase
+[CLASS] ShadowFoxDB (line 6)  →  from core.shadowfox_db import ShadowFoxDB
+[DEF] __init__ (line 7)  →  from core.shadowfox_db import __init__
+[DEF] _create_tables (line 12)  →  from core.shadowfox_db import _create_tables
+[DEF] log_recon_result (line 44)  →  from core.shadowfox_db import log_recon_result
+[DEF] log_mutation (line 47)  →  from core.shadowfox_db import log_mutation
+[DEF] log_jwt_attack (line 50)  →  from core.shadowfox_db import log_jwt_attack
+[DEF] log_ai_decision (line 53)  →  from core.shadowfox_db import log_ai_decision
+[DEF] _insert (line 56)  →  from core.shadowfox_db import _insert
+[DEF] get_mission_history (line 62)  →  from core.shadowfox_db import get_mission_history
+[CLASS] ShadowFoxDB (line 17)  →  from core.db import ShadowFoxDB
+[DEF] __init__ (line 18)  →  from core.db import __init__
+[DEF] _init_database (line 24)  →  from core.db import _init_database
+[DEF] get_connection (line 132)  →  from core.db import get_connection
+[DEF] create_mission (line 144)  →  from core.db import create_mission
+[DEF] get_mission (line 159)  →  from core.db import get_mission
+[DEF] update_mission_status (line 173)  →  from core.db import update_mission_status
+[DEF] log_module_activity (line 189)  →  from core.db import log_module_activity
+[DEF] get_module_activities (line 200)  →  from core.db import get_module_activities
+[DEF] store_payload (line 224)  →  from core.db import store_payload
+[DEF] get_payload (line 247)  →  from core.db import get_payload
+[DEF] update_payload_success (line 260)  →  from core.db import update_payload_success
+[DEF] get_best_payloads (line 286)  →  from core.db import get_best_payloads
+[DEF] store_vulnerability (line 304)  →  from core.db import store_vulnerability
+[DEF] get_vulnerabilities (line 326)  →  from core.db import get_vulnerabilities
+[DEF] store_intelligence (line 345)  →  from core.db import store_intelligence
+[DEF] get_intelligence_patterns (line 379)  →  from core.db import get_intelligence_patterns
+[DEF] publish_event (line 403)  →  from core.db import publish_event
+[DEF] get_unprocessed_events (line 412)  →  from core.db import get_unprocessed_events
+[DEF] mark_event_processed (line 435)  →  from core.db import mark_event_processed
+[DEF] store_metric (line 442)  →  from core.db import store_metric
+[DEF] get_metrics (line 451)  →  from core.db import get_metrics
+[DEF] get_mission_stats (line 470)  →  from core.db import get_mission_stats
+[DEF] cleanup_old_data (line 514)  →  from core.db import cleanup_old_data
+[DEF] get_db (line 537)  →  from core.db import get_db
+[CLASS] PayloadLibrary (line 9)  →  from core.payload_librar import PayloadLibrary
+[DEF] __init__ (line 15)  →  from core.payload_librar import __init__
+[DEF] _init_base_payloads (line 20)  →  from core.payload_librar import _init_base_payloads
+[DEF] _get_base_payloads (line 48)  →  from core.payload_librar import _get_base_payloads
+[DEF] get_payloads_by_type (line 325)  →  from core.payload_librar import get_payloads_by_type
+[DEF] add_custom_payload (line 329)  →  from core.payload_librar import add_custom_payload
+[DEF] update_payload_success_rate (line 343)  →  from core.payload_librar import update_payload_success_rate
+[DEF] get_top_payloads_by_success (line 354)  →  from core.payload_librar import get_top_payloads_by_success
+[DEF] search_payloads (line 372)  →  from core.payload_librar import search_payloads
+[DEF] get_payload_stats (line 389)  →  from core.payload_librar import get_payload_stats
+[CLASS] ReconAgent (line 15)  →  from agents.recon_agent import ReconAgent
+[DEF] __init__ (line 21)  →  from agents.recon_agent import __init__
+[DEF] recon (line 43)  →  from agents.recon_agent import recon
+[DEF] analyze_target (line 46)  →  from agents.recon_agent import analyze_target
+[DEF] _get_basic_info (line 115)  →  from agents.recon_agent import _get_basic_info
+[DEF] _analyze_headers (line 132)  →  from agents.recon_agent import _analyze_headers
+[DEF] _detect_technologies (line 156)  →  from agents.recon_agent import _detect_technologies
+[DEF] _scan_common_ports (line 191)  →  from agents.recon_agent import _scan_common_ports
+[DEF] check_port (line 196)  →  from agents.recon_agent import check_port
+[DEF] _discover_endpoints (line 215)  →  from agents.recon_agent import _discover_endpoints
+[DEF] check_endpoint (line 228)  →  from agents.recon_agent import check_endpoint
+[DEF] _find_forms (line 247)  →  from agents.recon_agent import _find_forms
+[DEF] _get_ssl_info (line 293)  →  from agents.recon_agent import _get_ssl_info
+[DEF] _identify_potential_vulns (line 313)  →  from agents.recon_agent import _identify_potential_vulns
+[CLASS] JWTInfo (line 39)  →  from agents.jwt_attack import JWTInfo
+[CLASS] AttackResult (line 53)  →  from agents.jwt_attack import AttackResult
+[CLASS] JWTForgeAI (line 65)  →  from agents.jwt_attack import JWTForgeAI
+[DEF] __init__ (line 71)  →  from agents.jwt_attack import __init__
+[DEF] _setup_logging (line 99)  →  from agents.jwt_attack import _setup_logging
+[DEF] _generate_rsa_keypair (line 112)  →  from agents.jwt_attack import _generate_rsa_keypair
+[DEF] decode_jwt_safe (line 125)  →  from agents.jwt_attack import decode_jwt_safe
+[DEF] analyze_jwt_security (line 181)  →  from agents.jwt_attack import analyze_jwt_security
+[DEF] attempt_none_algorithm (line 232)  →  from agents.jwt_attack import attempt_none_algorithm
+[DEF] attempt_hmac_bruteforce (line 291)  →  from agents.jwt_attack import attempt_hmac_bruteforce
+[DEF] attempt_algorithm_confusion (line 378)  →  from agents.jwt_attack import attempt_algorithm_confusion
+[DEF] attempt_key_confusion (line 448)  →  from agents.jwt_attack import attempt_key_confusion
+[DEF] validate_token_on_target (line 484)  →  from agents.jwt_attack import validate_token_on_target
+[DEF] run_full_attack_suite (line 511)  →  from agents.jwt_attack import run_full_attack_suite
+[DEF] _update_ai_learning (line 640)  →  from agents.jwt_attack import _update_ai_learning
+[DEF] _save_attack_results (line 650)  →  from agents.jwt_attack import _save_attack_results
+[DEF] generate_report (line 671)  →  from agents.jwt_attack import generate_report
+[DEF] run_jwt_attack (line 708)  →  from agents.jwt_attack import run_jwt_attack
+[DEF] main (line 712)  →  from agents.jwt_attack import main
+[CLASS] MutationType (line 20)  →  from agents.mutation_engine import MutationType
+[CLASS] MutationResult (line 29)  →  from agents.mutation_engine import MutationResult
+[CLASS] ShadowFoxMutationEngine (line 39)  →  from agents.mutation_engine import ShadowFoxMutationEngine
+[DEF] __init__ (line 45)  →  from agents.mutation_engine import __init__
+[DEF] mutate_rce_payload (line 94)  →  from agents.mutation_engine import mutate_rce_payload
+[DEF] _rce_command_variations (line 116)  →  from agents.mutation_engine import _rce_command_variations
+[DEF] _rce_context_mutations (line 190)  →  from agents.mutation_engine import _rce_context_mutations
+[DEF] _rce_encoding_mutations (line 242)  →  from agents.mutation_engine import _rce_encoding_mutations
+[DEF] _rce_waf_bypass_mutations (line 296)  →  from agents.mutation_engine import _rce_waf_bypass_mutations
+[DEF] _rce_polyglot_mutations (line 369)  →  from agents.mutation_engine import _rce_polyglot_mutations
+[DEF] mutate_ssrf_payload (line 409)  →  from agents.mutation_engine import mutate_ssrf_payload
+[DEF] _ssrf_url_mutations (line 431)  →  from agents.mutation_engine import _ssrf_url_mutations
+[DEF] _ssrf_ip_mutations (line 482)  →  from agents.mutation_engine import _ssrf_ip_mutations
+[DEF] _ssrf_protocol_mutations (line 531)  →  from agents.mutation_engine import _ssrf_protocol_mutations
+[DEF] _ssrf_encoding_mutations (line 578)  →  from agents.mutation_engine import _ssrf_encoding_mutations
+[DEF] _ssrf_redirect_mutations (line 622)  →  from agents.mutation_engine import _ssrf_redirect_mutations
+[DEF] mutate_js_payload (line 650)  →  from agents.mutation_engine import mutate_js_payload
+[DEF] _js_string_obfuscation (line 672)  →  from agents.mutation_engine import _js_string_obfuscation
+[DEF] _js_char_encoding_obfuscation (line 721)  →  from agents.mutation_engine import _js_char_encoding_obfuscation
+[DEF] mutate (line 766)  →  from agents.mutation_engine import mutate
+[DEF] _js_function_obfuscation (line 769)  →  from agents.mutation_engine import _js_function_obfuscation
+[CLASS] PayloadGene (line 22)  →  from agents.genetic_engine import PayloadGene
+[CLASS] PayloadChromosome (line 32)  →  from agents.genetic_engine import PayloadChromosome
+[DEF] __post_init__ (line 42)  →  from agents.genetic_engine import __post_init__
+[CLASS] GeneticWAFBypass (line 45)  →  from agents.genetic_engine import GeneticWAFBypass
+[DEF] __init__ (line 51)  →  from agents.genetic_engine import __init__
+[DEF] _load_waf_signatures (line 122)  →  from agents.genetic_engine import _load_waf_signatures
+[DEF] _initialize_bypass_patterns (line 155)  →  from agents.genetic_engine import _initialize_bypass_patterns
+[DEF] create_initial_population (line 184)  →  from agents.genetic_engine import create_initial_population
+[DEF] _payload_to_genes (line 207)  →  from agents.genetic_engine import _payload_to_genes
+[DEF] evaluate_fitness (line 227)  →  from agents.genetic_engine import evaluate_fitness
+[DEF] _calculate_waf_bypass_score (line 258)  →  from agents.genetic_engine import _calculate_waf_bypass_score
+[DEF] _simulate_execution_probability (line 270)  →  from agents.genetic_engine import _simulate_execution_probability
+[DEF] _calculate_stealth_score (line 281)  →  from agents.genetic_engine import _calculate_stealth_score
+[DEF] _calculate_novelty_score (line 299)  →  from agents.genetic_engine import _calculate_novelty_score
+[DEF] selection (line 314)  →  from agents.genetic_engine import selection
+[DEF] crossover (line 331)  →  from agents.genetic_engine import crossover
+[DEF] mutate (line 375)  →  from agents.genetic_engine import mutate
+[DEF] _encoding_mutation (line 413)  →  from agents.genetic_engine import _encoding_mutation
+[DEF] _obfuscation_mutation (line 418)  →  from agents.genetic_engine import _obfuscation_mutation
+[DEF] _evasion_mutation (line 423)  →  from agents.genetic_engine import _evasion_mutation
+[DEF] _syntax_mutation (line 428)  →  from agents.genetic_engine import _syntax_mutation
+[DEF] _polyglot_mutation (line 441)  →  from agents.genetic_engine import _polyglot_mutation
+[DEF] _url_encode (line 453)  →  from agents.genetic_engine import _url_encode
+[DEF] _double_url_encode (line 456)  →  from agents.genetic_engine import _double_url_encode
+[DEF] _html_encode (line 459)  →  from agents.genetic_engine import _html_encode
+[DEF] _unicode_encode (line 462)  →  from agents.genetic_engine import _unicode_encode
+[DEF] _base64_fragments (line 465)  →  from agents.genetic_engine import _base64_fragments
+[DEF] _hex_encode (line 471)  →  from agents.genetic_engine import _hex_encode
+[DEF] _char_code_encode (line 474)  →  from agents.genetic_engine import _char_code_encode
+[DEF] _mixed_case (line 478)  →  from agents.genetic_engine import _mixed_case
+[DEF] _comment_injection (line 483)  →  from agents.genetic_engine import _comment_injection
+[DEF] _whitespace_manipulation (line 489)  →  from agents.genetic_engine import _whitespace_manipulation
+[DEF] _concatenation_obfuscation (line 496)  →  from agents.genetic_engine import _concatenation_obfuscation
+[DEF] _function_aliasing (line 503)  →  from agents.genetic_engine import _function_aliasing
+[DEF] _property_access_obfuscation (line 508)  →  from agents.genetic_engine import _property_access_obfuscation
+[DEF] _eval_construction (line 513)  →  from agents.genetic_engine import _eval_construction
+[DEF] _string_splitting (line 519)  →  from agents.genetic_engine import _string_splitting
+[DEF] _template_literals (line 525)  →  from agents.genetic_engine import _template_literals
+[DEF] _syntax_variation (line 532)  →  from agents.genetic_engine import _syntax_variation
+[DEF] _protocol_smuggling (line 545)  →  from agents.genetic_engine import _protocol_smuggling
+[DEF] _parameter_pollution (line 550)  →  from agents.genetic_engine import _parameter_pollution
+[DEF] _boundary_crossing (line 556)  →  from agents.genetic_engine import _boundary_crossing
+[DEF] _context_switching (line 562)  →  from agents.genetic_engine import _context_switching
+[DEF] _polyglot_construction (line 568)  →  from agents.genetic_engine import _polyglot_construction
+[DEF] _genes_to_payload (line 574)  →  from agents.genetic_engine import _genes_to_payload
+[DEF] _random_mutation (line 580)  →  from agents.genetic_engine import _random_mutation
+[DEF] evolve_generation (line 589)  →  from agents.genetic_engine import evolve_generation
+[DEF] get_best_payloads (line 634)  →  from agents.genetic_engine import get_best_payloads
+[DEF] adaptive_evolution (line 639)  →  from agents.genetic_engine import adaptive_evolution
+[CLASS] AdaptationLevel (line 31)  →  from agents.cl0d_core import AdaptationLevel
+[CLASS] MutationStrategy (line 37)  →  from agents.cl0d_core import MutationStrategy
+[CLASS] DefenseSignature (line 45)  →  from agents.cl0d_core import DefenseSignature
+[CLASS] MutationGene (line 56)  →  from agents.cl0d_core import MutationGene
+[DEF] __post_init__ (line 67)  →  from agents.cl0d_core import __post_init__
+[CLASS] AttackResponse (line 72)  →  from agents.cl0d_core import AttackResponse
+[CLASS] AIDecision (line 85)  →  from agents.cl0d_core import AIDecision
+[CLASS] CL0D_Neural_Core (line 95)  →  from agents.cl0d_core import CL0D_Neural_Core
+[DEF] __init__ (line 101)  →  from agents.cl0d_core import __init__
+[DEF] analyze_defense_response (line 118)  →  from agents.cl0d_core import analyze_defense_response
+[DEF] calculate_adaptation_strategy (line 146)  →  from agents.cl0d_core import calculate_adaptation_strategy
+[DEF] _extract_features (line 183)  →  from agents.cl0d_core import _extract_features
+[DEF] _generate_reasoning (line 205)  →  from agents.cl0d_core import _generate_reasoning
+[DEF] _generate_payload_mutations (line 228)  →  from agents.cl0d_core import _generate_payload_mutations
+[DEF] _encode_payload (line 258)  →  from agents.cl0d_core import _encode_payload
+[DEF] _obfuscate_payload (line 280)  →  from agents.cl0d_core import _obfuscate_payload
+[DEF] _fragment_payload (line 302)  →  from agents.cl0d_core import _fragment_payload
+[DEF] _polyglot_payload (line 315)  →  from agents.cl0d_core import _polyglot_payload
+[DEF] _metamorphic_payload (line 327)  →  from agents.cl0d_core import _metamorphic_payload
+[DEF] _generate_header_adaptations (line 339)  →  from agents.cl0d_core import _generate_header_adaptations
+[DEF] _calculate_timing_adjustment (line 375)  →  from agents.cl0d_core import _calculate_timing_adjustment
+[DEF] _select_bypass_technique (line 384)  →  from agents.cl0d_core import _select_bypass_technique
+[DEF] learn_from_response (line 400)  →  from agents.cl0d_core import learn_from_response
+[CLASS] CL0D_MutationEngine (line 414)  →  from agents.cl0d_core import CL0D_MutationEngine
+[DEF] __init__ (line 420)  →  from agents.cl0d_core import __init__
+[DEF] _initialize_mutation_dna (line 427)  →  from agents.cl0d_core import _initialize_mutation_dna
+[ASYNC DEF] execute_adaptive_attack (line 469)  →  from agents.cl0d_core import execute_adaptive_attack
+[ASYNC DEF] _get_ai_decision (line 539)  →  from agents.cl0d_core import _get_ai_decision
+[ASYNC DEF] _execute_mutation_round (line 560)  →  from agents.cl0d_core import _execute_mutation_round
+[DEF] _detect_success_indicators (line 635)  →  from agents.cl0d_core import _detect_success_indicators
+[DEF] _detect_failure_indicators (line 659)  →  from agents.cl0d_core import _detect_failure_indicators
+[DEF] _log_successful_bypass (line 676)  →  from agents.cl0d_core import _log_successful_bypass
+[DEF] _display_progress (line 694)  →  from agents.cl0d_core import _display_progress
+[ASYNC DEF] _evolve_strategies (line 722)  →  from agents.cl0d_core import _evolve_strategies
+[CLASS] AdaptationLevel (line 31)  →  from agents.most_advanced import AdaptationLevel
+[CLASS] MutationStrategy (line 37)  →  from agents.most_advanced import MutationStrategy
+[CLASS] DefenseSignature (line 45)  →  from agents.most_advanced import DefenseSignature
+[CLASS] MutationGene (line 56)  →  from agents.most_advanced import MutationGene
+[DEF] __post_init__ (line 67)  →  from agents.most_advanced import __post_init__
+[CLASS] AttackResponse (line 72)  →  from agents.most_advanced import AttackResponse
+[CLASS] AIDecision (line 85)  →  from agents.most_advanced import AIDecision
+[CLASS] CL0D_Neural_Core (line 95)  →  from agents.most_advanced import CL0D_Neural_Core
+[DEF] __init__ (line 101)  →  from agents.most_advanced import __init__
+[DEF] analyze_defense_response (line 118)  →  from agents.most_advanced import analyze_defense_response
+[DEF] calculate_adaptation_strategy (line 146)  →  from agents.most_advanced import calculate_adaptation_strategy
+[DEF] _extract_features (line 183)  →  from agents.most_advanced import _extract_features
+[DEF] _generate_reasoning (line 205)  →  from agents.most_advanced import _generate_reasoning
+[DEF] _generate_payload_mutations (line 228)  →  from agents.most_advanced import _generate_payload_mutations
+[DEF] _encode_payload (line 258)  →  from agents.most_advanced import _encode_payload
+[DEF] _obfuscate_payload (line 280)  →  from agents.most_advanced import _obfuscate_payload
+[DEF] _fragment_payload (line 302)  →  from agents.most_advanced import _fragment_payload
+[DEF] _polyglot_payload (line 315)  →  from agents.most_advanced import _polyglot_payload
+[DEF] _metamorphic_payload (line 327)  →  from agents.most_advanced import _metamorphic_payload
+[DEF] _generate_header_adaptations (line 339)  →  from agents.most_advanced import _generate_header_adaptations
+[DEF] _calculate_timing_adjustment (line 375)  →  from agents.most_advanced import _calculate_timing_adjustment
+[DEF] _select_bypass_technique (line 384)  →  from agents.most_advanced import _select_bypass_technique
+[DEF] learn_from_response (line 400)  →  from agents.most_advanced import learn_from_response
+[CLASS] CL0D_MutationEngine (line 414)  →  from agents.most_advanced import CL0D_MutationEngine
+[DEF] __init__ (line 420)  →  from agents.most_advanced import __init__
+[DEF] _initialize_mutation_dna (line 427)  →  from agents.most_advanced import _initialize_mutation_dna
+[ASYNC DEF] execute_adaptive_attack (line 469)  →  from agents.most_advanced import execute_adaptive_attack
+[ASYNC DEF] _get_ai_decision (line 539)  →  from agents.most_advanced import _get_ai_decision
+[ASYNC DEF] _execute_mutation_round (line 560)  →  from agents.most_advanced import _execute_mutation_round
+[DEF] _detect_success_indicators (line 635)  →  from agents.most_advanced import _detect_success_indicators
+[DEF] _detect_failure_indicators (line 659)  →  from agents.most_advanced import _detect_failure_indicators
+[DEF] _log_successful_bypass (line 676)  →  from agents.most_advanced import _log_successful_bypass
+[DEF] _display_progress (line 694)  →  from agents.most_advanced import _display_progress
+[ASYNC DEF] _evolve_strategies (line 722)  →  from agents.most_advanced import _evolve_strategies
+[CLASS] CL0D_CLI (line 26)  →  from agents.1 import CL0D_CLI
+[DEF] __init__ (line 29)  →  from agents.1 import __init__
+[DEF] print_banner (line 34)  →  from agents.1 import print_banner
+[DEF] get_target_info (line 47)  →  from agents.1 import get_target_info
+[DEF] get_custom_config (line 107)  →  from agents.1 import get_custom_config
+[DEF] confirm_execution (line 129)  →  from agents.1 import confirm_execution
+[ASYNC DEF] execute_attack (line 152)  →  from agents.1 import execute_attack
+[DEF] signal_handler (line 163)  →  from agents.1 import signal_handler
+[DEF] generate_report (line 192)  →  from agents.1 import generate_report
+[DEF] display_summary (line 319)  →  from agents.1 import display_summary
+[ASYNC DEF] main (line 340)  →  from agents.1 import main
+[CLASS] PDFExporter (line 17)  →  from izvestaji.pdf_exporter import PDFExporter
+[DEF] __init__ (line 23)  →  from izvestaji.pdf_exporter import __init__
+[DEF] _setup_custom_styles (line 31)  →  from izvestaji.pdf_exporter import _setup_custom_styles
+[DEF] create_report (line 116)  →  from izvestaji.pdf_exporter import create_report
+[DEF] _create_header (line 185)  →  from izvestaji.pdf_exporter import _create_header
+[DEF] _create_executive_summary (line 224)  →  from izvestaji.pdf_exporter import _create_executive_summary
+[DEF] _create_mission_details (line 274)  →  from izvestaji.pdf_exporter import _create_mission_details
+[DEF] _create_vulnerability_section (line 294)  →  from izvestaji.pdf_exporter import _create_vulnerability_section
+[DEF] _create_technical_details (line 337)  →  from izvestaji.pdf_exporter import _create_technical_details
+[DEF] _create_recommendations (line 370)  →  from izvestaji.pdf_exporter import _create_recommendations
+[DEF] _create_appendix (line 411)  →  from izvestaji.pdf_exporter import _create_appendix
+[DEF] _create_footer (line 437)  →  from izvestaji.pdf_exporter import _create_footer
+[DEF] _add_watermark (line 470)  →  from izvestaji.pdf_exporter import _add_watermark
+[DEF] export_pdf (line 510)  →  from izvestaji.pdf_exporter import export_pdf
+[CLASS] VulnSeverity (line 19)  →  from logic.vuln_mapper import VulnSeverity
+[CLASS] VulnType (line 31)  →  from logic.vuln_mapper import VulnType
+[CLASS] VulnStatus (line 57)  →  from logic.vuln_mapper import VulnStatus
+[CLASS] VulnFingerprint (line 69)  →  from logic.vuln_mapper import VulnFingerprint
+[CLASS] Vulnerability (line 79)  →  from logic.vuln_mapper import Vulnerability
+[CLASS] VulnerabilityMapper (line 108)  →  from logic.vuln_mapper import VulnerabilityMapper
+[DEF] __init__ (line 113)  →  from logic.vuln_mapper import __init__
+[ASYNC DEF] initialize (line 127)  →  from logic.vuln_mapper import initialize
+[ASYNC DEF] _ensure_dirs (line 131)  →  from logic.vuln_mapper import _ensure_dirs
+[ASYNC DEF] set_mission (line 135)  →  from logic.vuln_mapper import set_mission
+[ASYNC DEF] _load_vulnerabilities (line 150)  →  from logic.vuln_mapper import _load_vulnerabilities
+[ASYNC DEF] _save_vulnerabilities (line 174)  →  from logic.vuln_mapper import _save_vulnerabilities
+[DEF] _generate_id (line 185)  →  from logic.vuln_mapper import _generate_id
+[DEF] _generate_fingerprint (line 202)  →  from logic.vuln_mapper import _generate_fingerprint
+[DEF] _calculate_severity (line 219)  →  from logic.vuln_mapper import _calculate_severity
+[ASYNC DEF] add_vulnerability (line 259)  →  from logic.vuln_mapper import add_vulnerability
+[ASYNC DEF] get_vulnerability (line 319)  →  from logic.vuln_mapper import get_vulnerability
+[ASYNC DEF] update_vulnerability (line 331)  →  from logic.vuln_mapper import update_vulnerability
+[ASYNC DEF] verify_vulnerability (line 353)  →  from logic.vuln_mapper import verify_vulnerability
+[ASYNC DEF] flag_as_false_positive (line 378)  →  from logic.vuln_mapper import flag_as_false_positive
+[ASYNC DEF] add_evidence (line 409)  →  from logic.vuln_mapper import add_evidence
+[ASYNC DEF] get_vulnerabilities_by_type (line 433)  →  from logic.vuln_mapper import get_vulnerabilities_by_type
+[ASYNC DEF] get_vulnerabilities_by_severity (line 446)  →  from logic.vuln_mapper import get_vulnerabilities_by_severity
+[ASYNC DEF] get_all_vulnerabilities (line 459)  →  from logic.vuln_mapper import get_all_vulnerabilities
+[ASYNC DEF] get_vulnerability_count_by_severity (line 468)  →  from logic.vuln_mapper import get_vulnerability_count_by_severity
+[DEF] print_vulnerability_table (line 481)  →  from logic.vuln_mapper import print_vulnerability_table
+[DEF] _truncate_url (line 526)  →  from logic.vuln_mapper import _truncate_url
+[ASYNC DEF] detect_critical_issues (line 551)  →  from logic.vuln_mapper import detect_critical_issues
+[ASYNC DEF] generate_owasp_mapping (line 580)  →  from logic.vuln_mapper import generate_owasp_mapping
+[ASYNC DEF] export_vulnerabilities (line 630)  →  from logic.vuln_mapper import export_vulnerabilities
+[ASYNC DEF] map_vulnerabilities (line 688)  →  from logic.vuln_mapper import map_vulnerabilities
+[ASYNC DEF] demo_vuln_mapper (line 694)  →  from logic.vuln_mapper import demo_vuln_mapper
+[CLASS] MutationEngine (line 16)  →  from logic.mutation import MutationEngine
+[DEF] __init__ (line 22)  →  from logic.mutation import __init__
+[DEF] _init_payload_library (line 43)  →  from logic.mutation import _init_payload_library
+[DEF] generate_mutations (line 159)  →  from logic.mutation import generate_mutations
+[DEF] _create_mutation (line 199)  →  from logic.mutation import _create_mutation
+[DEF] _apply_encoding (line 255)  →  from logic.mutation import _apply_encoding
+[DEF] _vary_case (line 291)  →  from logic.mutation import _vary_case
+[DEF] _inject_comments (line 301)  →  from logic.mutation import _inject_comments
+[DEF] _insert_null_bytes (line 319)  →  from logic.mutation import _insert_null_bytes
+[DEF] _apply_waf_bypass (line 331)  →  from logic.mutation import _apply_waf_bypass
+[DEF] _apply_concatenation (line 358)  →  from logic.mutation import _apply_concatenation
+[DEF] _apply_padding (line 376)  →  from logic.mutation import _apply_padding
+[DEF] generate_smart_mutations (line 395)  →  from logic.mutation import generate_smart_mutations
+[DEF] _select_contextual_payloads (line 413)  →  from logic.mutation import _select_contextual_payloads
+[DEF] save_payload_to_library (line 448)  →  from logic.mutation import save_payload_to_library
+[DEF] get_best_payloads (line 464)  →  from logic.mutation import get_best_payloads
+[DEF] create_payload_variants (line 470)  →  from logic.mutation import create_payload_variants
+[CLASS] PayloadType (line 16)  →  from logic.replay_manager import PayloadType
+[CLASS] ReplayRequest (line 29)  →  from logic.replay_manager import ReplayRequest
+[CLASS] ReplayResponse (line 43)  →  from logic.replay_manager import ReplayResponse
+[CLASS] MutationEngine (line 55)  →  from logic.replay_manager import MutationEngine
+[DEF] __init__ (line 60)  →  from logic.replay_manager import __init__
+[DEF] _load_base_payloads (line 71)  →  from logic.replay_manager import _load_base_payloads
+[DEF] generate_mutations (line 136)  →  from logic.replay_manager import generate_mutations
+[DEF] _case_mutation (line 165)  →  from logic.replay_manager import _case_mutation
+[DEF] _encoding_mutation (line 175)  →  from logic.replay_manager import _encoding_mutation
+[DEF] _comment_mutation (line 188)  →  from logic.replay_manager import _comment_mutation
+[DEF] _concat_mutation (line 202)  →  from logic.replay_manager import _concat_mutation
+[DEF] _bypass_mutation (line 216)  →  from logic.replay_manager import _bypass_mutation
+[CLASS] ReplayManager (line 233)  →  from logic.replay_manager import ReplayManager
+[DEF] __init__ (line 238)  →  from logic.replay_manager import __init__
+[DEF] replay_attack (line 265)  →  from logic.replay_manager import replay_attack
+[ASYNC DEF] _execute_async_requests (line 317)  →  from logic.replay_manager import _execute_async_requests
+[ASYNC DEF] _send_async_request (line 342)  →  from logic.replay_manager import _send_async_request
+[DEF] _detect_injectable_params (line 402)  →  from logic.replay_manager import _detect_injectable_params
+[DEF] _prepare_request_with_payload (line 427)  →  from logic.replay_manager import _prepare_request_with_payload
+[DEF] _analyze_responses (line 457)  →  from logic.replay_manager import _analyze_responses
+[CLASS] AIReporter (line 28)  →  from logic.ai_reporter_module import AIReporter
+[DEF] __init__ (line 34)  →  from logic.ai_reporter_module import __init__
+[ASYNC DEF] initialize (line 53)  →  from logic.ai_reporter_module import initialize
+[ASYNC DEF] generate_report (line 56)  →  from logic.ai_reporter_module import generate_report
+[ASYNC DEF] process_mission_data (line 58)  →  from logic.ai_reporter_module import process_mission_data
+[ASYNC DEF] _generate_summary (line 122)  →  from logic.ai_reporter_module import _generate_summary
+[ASYNC DEF] _assess_risk_level (line 173)  →  from logic.ai_reporter_module import _assess_risk_level
+[ASYNC DEF] _identify_risk_factors (line 221)  →  from logic.ai_reporter_module import _identify_risk_factors
+[ASYNC DEF] _generate_recommendations (line 253)  →  from logic.ai_reporter_module import _generate_recommendations
+[DEF] _get_recommendation_for_type (line 303)  →  from logic.ai_reporter_module import _get_recommendation_for_type
+[ASYNC DEF] _analyze_vulnerabilities (line 350)  →  from logic.ai_reporter_module import _analyze_vulnerabilities
+[ASYNC DEF] _analyze_mutations (line 421)  →  from logic.ai_reporter_module import _analyze_mutations
+[ASYNC DEF] _analyze_recon (line 473)  →  from logic.ai_reporter_module import _analyze_recon
+[ASYNC DEF] _analyze_jwt (line 529)  →  from logic.ai_reporter_module import _analyze_jwt
+[ASYNC DEF] _generate_markdown_report (line 585)  →  from logic.ai_reporter_module import _generate_markdown_report
+[ASYNC DEF] _generate_pdf_report (line 767)  →  from logic.ai_reporter_module import _generate_pdf_report
+[CLASS] WAFBehaviorClassifier (line 13)  →  from logic.waf_behavior_classifier import WAFBehaviorClassifier
+[DEF] __init__ (line 19)  →  from logic.waf_behavior_classifier import __init__
+[DEF] _load_waf_signatures (line 115)  →  from logic.waf_behavior_classifier import _load_waf_signatures
+[DEF] analyze_waf_behavior (line 176)  →  from logic.waf_behavior_classifier import analyze_waf_behavior
+[DEF] _passive_fingerprinting (line 235)  →  from logic.waf_behavior_classifier import _passive_fingerprinting
+[DEF] _behavioral_testing (line 309)  →  from logic.waf_behavior_classifier import _behavioral_testing
+[DEF] _timing_analysis (line 377)  →  from logic.waf_behavior_classifier import _timing_analysis
+[DEF] _error_page_analysis (line 433)  →  from logic.waf_behavior_classifier import _error_page_analysis
+[DEF] _combine_results (line 485)  →  from logic.waf_behavior_classifier import _combine_results
+[DEF] _generate_recommendations (line 541)  →  from logic.waf_behavior_classifier import _generate_recommendations
+[DEF] classify_waf_behavior (line 602)  →  from logic.waf_behavior_classifier import classify_waf_behavior
+[DEF] extract_definitions_from_file (line 7)  →  from tools.module_mapper import extract_definitions_from_file
+[DEF] scan_project (line 16)  →  from tools.module_mapper import scan_project
+[DEF] write_summary (line 28)  →  from tools.module_mapper import write_summary
+[CLASS] ConsciousnessLevel (line 22)  →  from ai_core.CORE_System import ConsciousnessLevel
+[CLASS] EventPriority (line 29)  →  from ai_core.CORE_System import EventPriority
+[CLASS] MemoryType (line 35)  →  from ai_core.CORE_System import MemoryType
+[CLASS] ConsciousEvent (line 44)  →  from ai_core.CORE_System import ConsciousEvent
+[DEF] __post_init__ (line 58)  →  from ai_core.CORE_System import __post_init__
+[CLASS] Memory (line 63)  →  from ai_core.CORE_System import Memory
+[DEF] __post_init__ (line 76)  →  from ai_core.CORE_System import __post_init__
+[CLASS] ConsciousModule (line 80)  →  from ai_core.CORE_System import ConsciousModule
+[DEF] __init__ (line 83)  →  from ai_core.CORE_System import __init__
+[DEF] process_emotion (line 97)  →  from ai_core.CORE_System import process_emotion
+[DEF] create_memory (line 115)  →  from ai_core.CORE_System import create_memory
+[DEF] recall_memory (line 133)  →  from ai_core.CORE_System import recall_memory
+[CLASS] ShadowFoxConsciousCore (line 156)  →  from ai_core.CORE_System import ShadowFoxConsciousCore
+[DEF] __init__ (line 162)  →  from ai_core.CORE_System import __init__
+[DEF] register_module (line 205)  →  from ai_core.CORE_System import register_module
+[DEF] emit_conscious_event (line 214)  →  from ai_core.CORE_System import emit_conscious_event
+[DEF] _process_global_emotion (line 238)  →  from ai_core.CORE_System import _process_global_emotion
+[DEF] _update_collective_memory (line 256)  →  from ai_core.CORE_System import _update_collective_memory
+[DEF] _make_conscious_decision (line 282)  →  from ai_core.CORE_System import _make_conscious_decision
+[DEF] _find_similar_situations (line 311)  →  from ai_core.CORE_System import _find_similar_situations
+[DEF] _generate_decision (line 341)  →  from ai_core.CORE_System import _generate_decision
+[DEF] _broadcast_decision (line 391)  →  from ai_core.CORE_System import _broadcast_decision
+[DEF] _get_current_context (line 402)  →  from ai_core.CORE_System import _get_current_context
+[DEF] _start_consciousness_loop (line 423)  →  from ai_core.CORE_System import _start_consciousness_loop
+[DEF] consciousness_loop (line 425)  →  from ai_core.CORE_System import consciousness_loop
+[DEF] _process_memory_decay (line 447)  →  from ai_core.CORE_System import _process_memory_decay
+[DEF] _dream_sequence (line 464)  →  from ai_core.CORE_System import _dream_sequence
+[DEF] _generate_dream_insights (line 497)  →  from ai_core.CORE_System import _generate_dream_insights
+[DEF] _find_common_factors (line 530)  →  from ai_core.CORE_System import _find_common_factors
+[DEF] _consolidate_memories (line 550)  →  from ai_core.CORE_System import _consolidate_memories
+[DEF] get_consciousness_report (line 562)  →  from ai_core.CORE_System import get_consciousness_report
+[DEF] shutdown (line 575)  →  from ai_core.CORE_System import shutdown
+[CLASS] ShadowSpiderConscious (line 584)  →  from ai_core.CORE_System import ShadowSpiderConscious
+[DEF] __init__ (line 587)  →  from ai_core.CORE_System import __init__
+[DEF] on_conscious_decision (line 591)  →  from ai_core.CORE_System import on_conscious_decision
+[CLASS] PayloadMutatorConscious (line 604)  →  from ai_core.CORE_System import PayloadMutatorConscious
+[DEF] __init__ (line 607)  →  from ai_core.CORE_System import __init__
+[DEF] on_conscious_decision (line 611)  →  from ai_core.CORE_System import on_conscious_decision
+[CLASS] ModuleStatus (line 27)  →  from ai_core.Core_Module_Orchestrator import ModuleStatus
+[CLASS] ModulePriority (line 37)  →  from ai_core.Core_Module_Orchestrator import ModulePriority
+[CLASS] ModuleConfig (line 44)  →  from ai_core.Core_Module_Orchestrator import ModuleConfig
+[CLASS] ModuleInstance (line 57)  →  from ai_core.Core_Module_Orchestrator import ModuleInstance
+[CLASS] BaseShadowFoxModule (line 75)  →  from ai_core.Core_Module_Orchestrator import BaseShadowFoxModule
+[DEF] __init__ (line 80)  →  from ai_core.Core_Module_Orchestrator import __init__
+[ASYNC DEF] initialize (line 96)  →  from ai_core.Core_Module_Orchestrator import initialize
+[ASYNC DEF] start (line 110)  →  from ai_core.Core_Module_Orchestrator import start
+[ASYNC DEF] stop (line 115)  →  from ai_core.Core_Module_Orchestrator import stop
+[ASYNC DEF] pause (line 121)  →  from ai_core.Core_Module_Orchestrator import pause
+[ASYNC DEF] resume (line 126)  →  from ai_core.Core_Module_Orchestrator import resume
+[ASYNC DEF] _register_event_handlers (line 131)  →  from ai_core.Core_Module_Orchestrator import _register_event_handlers
+[DEF] log_activity (line 135)  →  from ai_core.Core_Module_Orchestrator import log_activity
+[DEF] emit_event (line 146)  →  from ai_core.Core_Module_Orchestrator import emit_event
+[DEF] update_performance_stats (line 158)  →  from ai_core.Core_Module_Orchestrator import update_performance_stats
+[DEF] get_performance_stats (line 167)  →  from ai_core.Core_Module_Orchestrator import get_performance_stats
+[CLASS] ShadowFoxOrchestrator (line 179)  →  from ai_core.Core_Module_Orchestrator import ShadowFoxOrchestrator
+[DEF] __init__ (line 184)  →  from ai_core.Core_Module_Orchestrator import __init__
+[DEF] _register_core_handlers (line 212)  →  from ai_core.Core_Module_Orchestrator import _register_core_handlers
+[DEF] _load_default_configurations (line 235)  →  from ai_core.Core_Module_Orchestrator import _load_default_configurations
+[DEF] register_module_config (line 431)  →  from ai_core.Core_Module_Orchestrator import register_module_config
+[DEF] get_load_order (line 440)  →  from ai_core.Core_Module_Orchestrator import get_load_order
+[DEF] can_load (line 445)  →  from ai_core.Core_Module_Orchestrator import can_load
+[ASYNC DEF] load_module (line 477)  →  from ai_core.Core_Module_Orchestrator import load_module
+[ASYNC DEF] initialize_module (line 522)  →  from ai_core.Core_Module_Orchestrator import initialize_module
+[ASYNC DEF] start_module (line 586)  →  from ai_core.Core_Module_Orchestrator import start_module
+[ASYNC DEF] stop_module (line 619)  →  from ai_core.Core_Module_Orchestrator import stop_module
+[ASYNC DEF] restart_module (line 656)  →  from ai_core.Core_Module_Orchestrator import restart_module
+[ASYNC DEF] load_all_modules (line 682)  →  from ai_core.Core_Module_Orchestrator import load_all_modules
+[ASYNC DEF] initialize_all_modules (line 699)  →  from ai_core.Core_Module_Orchestrator import initialize_all_modules
+[ASYNC DEF] start_all_modules (line 714)  →  from ai_core.Core_Module_Orchestrator import start_all_modules
+[ASYNC DEF] start_mission (line 728)  →  from ai_core.Core_Module_Orchestrator import start_mission
+[ASYNC DEF] stop_mission (line 757)  →  from ai_core.Core_Module_Orchestrator import stop_mission
+[ASYNC DEF] _monitor_modules (line 789)  →  from ai_core.Core_Module_Orchestrator import _monitor_modules
+[ASYNC DEF] _handle_module_error (line 822)  →  from ai_core.Core_Module_Orchestrator import _handle_module_error
+[ASYNC DEF] _handle_vulnerability_found (line 830)  →  from ai_core.Core_Module_Orchestrator import _handle_vulnerability_found

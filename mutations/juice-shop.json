@@ -1,0 +1,62 @@
+[
+  {
+    "original": "https://juice-shop.herokuapp.com",
+    "mutated": "Function(\"https://juice-shop.herokuapp.com\")()",
+    "mutation_type": "MutationType.JS_OBFUSCATION",
+    "technique": "function_constructor",
+    "complexity_score": 0.8,
+    "bypass_score": 0.9,
+    "success_probability": 0.6,
+    "metadata": {
+      "method": "Function_constructor"
+    }
+  },
+  {
+    "original": "https://juice-shop.herokuapp.com",
+    "mutated": "eval(\"https://juice-shop.herokuapp.com\")",
+    "mutation_type": "MutationType.JS_OBFUSCATION",
+    "technique": "eval_variant",
+    "complexity_score": 0.7,
+    "bypass_score": 0.6,
+    "success_probability": 0.5,
+    "metadata": {
+      "method": "eval_variant"
+    }
+  },
+  {
+    "original": "https://juice-shop.herokuapp.com",
+    "mutated": "window[\"ev\"+\"al\"](\"https://juice-shop.herokuapp.com\")",
+    "mutation_type": "MutationType.JS_OBFUSCATION",
+    "technique": "eval_variant",
+    "complexity_score": 0.7,
+    "bypass_score": 0.6,
+    "success_probability": 0.5,
+    "metadata": {
+      "method": "eval_variant"
+    }
+  },
+  {
+    "original": "https://juice-shop.herokuapp.com",
+    "mutated": "({})[\"constructor\"][\"constructor\"](\"https://juice-shop.herokuapp.com\")()",
+    "mutation_type": "MutationType.JS_OBFUSCATION",
+    "technique": "eval_variant",
+    "complexity_score": 0.7,
+    "bypass_score": 0.6,
+    "success_probability": 0.5,
+    "metadata": {
+      "method": "eval_variant"
+    }
+  },
+  {
+    "original": "https://juice-shop.herokuapp.com",
+    "mutated": "setTimeout(\"https://juice-shop.herokuapp.com\", 1000)",
+    "mutation_type": "MutationType.JS_OBFUSCATION",
+    "technique": "eval_variant",
+    "complexity_score": 0.7,
+    "bypass_score": 0.6,
+    "success_probability": 0.5,
+    "metadata": {
+      "method": "eval_variant"
+    }
+  }
+]

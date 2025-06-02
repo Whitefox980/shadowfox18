@@ -1,0 +1,57 @@
+[
+  {
+    "module": "agents.recon_agent",
+    "function": "recon_target",
+    "args": ["https://juice-shop.herokuapp.com"]
+  },
+  {
+    "module": "agents.jwt_attack",
+    "function": "jwt_attack_main",
+    "args": []
+  },
+  {
+    "module": "agents.mutation_engine",
+    "function": "demo_mutation_engine",
+    "args": []
+  },
+  {
+    "module": "agents.genetic_engine",
+    "function": "start_genetic_optimizer",
+    "args": []
+  },
+  {
+    "module": "agents.most_advanced",
+    "function": "run_all_advanced",
+    "args": []
+  },
+  {
+    "module": "core.payload_library",
+    "function": "load_payloads",
+    "args": []
+  },
+  {
+    "module": "logic.vuln_mapper",
+    "function": "print_vulnerability_table",
+    "args": []
+  },
+  {
+    "module": "logic.replay_manager",
+    "function": "demo_replay",
+    "args": []
+  },
+  {
+    "module": "logic.waf_behavior_classifier",
+    "function": "analyze_waf_behavior",
+    "args": ["https://juice-shop.herokuapp.com"]
+  },
+  {
+    "module": "logic.ai_reporter_module",
+    "function": "generate_report",
+    "args": []
+  },
+  {
+    "module": "izvestaji.pdf_exporter",
+    "function": "demo_pdf_export",
+    "args": []
+  }
+]
