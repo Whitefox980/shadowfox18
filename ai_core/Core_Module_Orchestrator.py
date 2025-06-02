@@ -827,4 +827,3 @@ class ShadowFoxOrchestrator:
             # Attempt restart
             await self.restart_module(module_name)
     
-    async def _handle_vulnerability_found(self, event: Sha

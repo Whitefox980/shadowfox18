@@ -1,0 +1,126 @@
+logic/vuln_mapper.py:
+  get → [HTTP_REQUEST]
+  json.dump → [JSON_IO]
+  json.load → [JSON_IO]
+  open → [FILE_IO]
+  read → [FILE_IO]
+  write → [FILE_IO]
+
+logic/mutation.py:
+  get → [HTTP_REQUEST]
+  sqlite3.connect → [SQLITE]
+
+logic/replay_manager.py:
+  get → [HTTP_REQUEST]
+
+logic/ai_reporter_module.py:
+  get → [HTTP_REQUEST]
+  json.dump → [JSON_IO]
+  open → [FILE_IO]
+  write → [FILE_IO]
+
+logic/waf_behavior_classifier.py:
+  get → [HTTP_REQUEST]
+  json.dump → [JSON_IO]
+
+logic/traffic_shaper.py:
+  get → [HTTP_REQUEST]
+  read → [FILE_IO]
+
+logic/fuzz_engine.py:
+  get → [HTTP_REQUEST]
+
+core/shadowfox_db.py:
+  json.dump → [JSON_IO]
+  sqlite3.connect → [SQLITE]
+
+core/db.py:
+  get → [HTTP_REQUEST]
+  json.dump → [JSON_IO]
+  json.load → [JSON_IO]
+  read → [FILE_IO]
+  sqlite3.connect → [SQLITE]
+
+core/payload_library.py:
+  get → [HTTP_REQUEST]
+  json.dump → [JSON_IO]
+  sqlite3.connect → [SQLITE]
+
+core/payload_seeder.py:
+  get → [HTTP_REQUEST]
+  sqlite3.connect → [SQLITE]
+
+core/shadow_mail_payloads.py:
+  get → [HTTP_REQUEST]
+
+agents/recon_agent.py:
+  get → [HTTP_REQUEST]
+  json.dump → [JSON_IO]
+  open → [FILE_IO]
+  read → [FILE_IO]
+
+agents/jwt_attack.py:
+  get → [HTTP_REQUEST]
+  json.dump → [JSON_IO]
+  json.load → [JSON_IO]
+  open → [FILE_IO]
+  post → [HTTP_REQUEST]
+  read → [FILE_IO]
+  requests.get → [HTTP_REQUEST]
+  requests.post → [HTTP_REQUEST]
+  subprocess → [SHELL_EXEC]
+
+agents/genetic_engine.py:
+  get → [HTTP_REQUEST]
+
+agents/1.py:
+  get → [HTTP_REQUEST]
+  json.dump → [JSON_IO]
+  open → [FILE_IO]
+  write → [FILE_IO]
+
+agents/smart_shadow_agent.py:
+  get → [HTTP_REQUEST]
+  json.dump → [JSON_IO]
+  post → [HTTP_REQUEST]
+
+agents/pathfinder.py:
+  get → [HTTP_REQUEST]
+  json.dump → [JSON_IO]
+  read → [FILE_IO]
+
+agents/shadow_proxy_master.py:
+  get → [HTTP_REQUEST]
+  json.dump → [JSON_IO]
+  json.load → [JSON_IO]
+  read → [FILE_IO]
+  write → [FILE_IO]
+
+agents/shadowx_agent.py:
+  get → [HTTP_REQUEST]
+  json.dump → [JSON_IO]
+  json.load → [JSON_IO]
+  open → [FILE_IO]
+  post → [HTTP_REQUEST]
+
+agents/dom_collector.py:
+  get → [HTTP_REQUEST]
+  open → [FILE_IO]
+  post → [HTTP_REQUEST]
+  write → [FILE_IO]
+
+ai_core/CORE_System.py:
+  get → [HTTP_REQUEST]
+  json.dump → [JSON_IO]
+  read → [FILE_IO]
+
+tools/module_mapper.py:
+  open → [FILE_IO]
+  write → [FILE_IO]
+
+tools/dataflow_summary.py:
+  get → [HTTP_REQUEST]
+  open → [FILE_IO]
+  read → [FILE_IO]
+  write → [FILE_IO]
+

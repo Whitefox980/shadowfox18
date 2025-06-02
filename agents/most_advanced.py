@@ -730,3 +730,12 @@ class CL0D_MutationEngine:
             print("🧬 EVOLUTION: Switching to EXPLOITATION mode")
         elif success_rate > 0.3:
             # High success - maintain current
+            pass
+def agent_callback(task):
+    from agents.most_advanced import CL0D_Neural_Core
+    import asyncio
+    agent = CL0D_Neural_Core()
+    return asyncio.run(agent.execute_adaptive_attack(
+        task.payload.get("target"),
+        task.mission_id
+    ))

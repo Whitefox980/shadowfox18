@@ -1,5 +1,3 @@
-[DEF] build_vulnerability_map (line 3)  →  from vuln_mapper import build_vulnerability_map
-[DEF] print_vuln_table (line 33)  →  from vuln_mapper import print_vuln_table
 [DEF] dynamic_import (line 5)  →  from shadow_orchestrator_graph import dynamic_import
 [DEF] resolve_args (line 11)  →  from shadow_orchestrator_graph import resolve_args
 [DEF] run_mission (line 14)  →  from shadow_orchestrator_graph import run_mission
@@ -51,6 +49,24 @@
 [DEF] get_top_payloads_by_success (line 354)  →  from core.payload_librar import get_top_payloads_by_success
 [DEF] search_payloads (line 372)  →  from core.payload_librar import search_payloads
 [DEF] get_payload_stats (line 389)  →  from core.payload_librar import get_payload_stats
+[CLASS] PayloadLibrarySeeder (line 9)  →  from core.payload_seeder import PayloadLibrarySeeder
+[DEF] __init__ (line 15)  →  from core.payload_seeder import __init__
+[DEF] seed_all_payloads (line 18)  →  from core.payload_seeder import seed_all_payloads
+[DEF] _get_xss_payloads (line 50)  →  from core.payload_seeder import _get_xss_payloads
+[DEF] _get_sqli_payloads (line 90)  →  from core.payload_seeder import _get_sqli_payloads
+[DEF] _get_lfi_payloads (line 133)  →  from core.payload_seeder import _get_lfi_payloads
+[DEF] _get_ssrf_payloads (line 164)  →  from core.payload_seeder import _get_ssrf_payloads
+[DEF] _get_ssti_payloads (line 192)  →  from core.payload_seeder import _get_ssti_payloads
+[DEF] _get_jwt_payloads (line 215)  →  from core.payload_seeder import _get_jwt_payloads
+[DEF] _get_cmd_injection_payloads (line 233)  →  from core.payload_seeder import _get_cmd_injection_payloads
+[DEF] _get_xxe_payloads (line 259)  →  from core.payload_seeder import _get_xxe_payloads
+[DEF] _get_rfi_payloads (line 272)  →  from core.payload_seeder import _get_rfi_payloads
+[DEF] _get_idor_payloads (line 280)  →  from core.payload_seeder import _get_idor_payloads
+[DEF] _get_csrf_payloads (line 289)  →  from core.payload_seeder import _get_csrf_payloads
+[DEF] _get_ldap_payloads (line 295)  →  from core.payload_seeder import _get_ldap_payloads
+[DEF] _get_nosql_payloads (line 303)  →  from core.payload_seeder import _get_nosql_payloads
+[DEF] get_email_payloads (line 329)  →  from core.shadow_mail_payloads import get_email_payloads
+[DEF] generate_targeted_email_payloads (line 350)  →  from core.shadow_mail_payloads import generate_targeted_email_payloads
 [CLASS] ReconAgent (line 15)  →  from agents.recon_agent import ReconAgent
 [DEF] __init__ (line 21)  →  from agents.recon_agent import __init__
 [DEF] recon (line 43)  →  from agents.recon_agent import recon
@@ -233,6 +249,107 @@
 [DEF] generate_report (line 192)  →  from agents.1 import generate_report
 [DEF] display_summary (line 319)  →  from agents.1 import display_summary
 [ASYNC DEF] main (line 340)  →  from agents.1 import main
+[CLASS] SmartShadowAgent (line 16)  →  from agents.smart_shadow_agent import SmartShadowAgent
+[DEF] __init__ (line 22)  →  from agents.smart_shadow_agent import __init__
+[DEF] attack_target (line 111)  →  from agents.smart_shadow_agent import attack_target
+[DEF] _get_target_hash (line 186)  →  from agents.smart_shadow_agent import _get_target_hash
+[DEF] _analyze_target_context (line 190)  →  from agents.smart_shadow_agent import _analyze_target_context
+[DEF] _generate_smart_payloads (line 217)  →  from agents.smart_shadow_agent import _generate_smart_payloads
+[DEF] _calculate_payload_priority (line 263)  →  from agents.smart_shadow_agent import _calculate_payload_priority
+[DEF] _execute_smart_attack (line 292)  →  from agents.smart_shadow_agent import _execute_smart_attack
+[DEF] _identify_attack_surfaces (line 338)  →  from agents.smart_shadow_agent import _identify_attack_surfaces
+[DEF] _execute_single_attack (line 396)  →  from agents.smart_shadow_agent import _execute_single_attack
+[DEF] _analyze_response (line 478)  →  from agents.smart_shadow_agent import _analyze_response
+[DEF] _extract_indicators (line 507)  →  from agents.smart_shadow_agent import _extract_indicators
+[DEF] _learn_from_success (line 517)  →  from agents.smart_shadow_agent import _learn_from_success
+[DEF] _learn_from_failure (line 527)  →  from agents.smart_shadow_agent import _learn_from_failure
+[DEF] _adapt_strategy (line 537)  →  from agents.smart_shadow_agent import _adapt_strategy
+[DEF] _dynamic_strategy_adjustment (line 550)  →  from agents.smart_shadow_agent import _dynamic_strategy_adjustment
+[DEF] _generate_ai_insights (line 560)  →  from agents.smart_shadow_agent import _generate_ai_insights
+[DEF] _get_expected_indicators (line 590)  →  from agents.smart_shadow_agent import _get_expected_indicators
+[DEF] _get_builtin_payloads (line 601)  →  from agents.smart_shadow_agent import _get_builtin_payloads
+[CLASS] AttackSurface (line 16)  →  from agents.pathfinder import AttackSurface
+[CLASS] AIPathfinder (line 29)  →  from agents.pathfinder import AIPathfinder
+[DEF] __init__ (line 34)  →  from agents.pathfinder import __init__
+[DEF] analyze_site_map (line 93)  →  from agents.pathfinder import analyze_site_map
+[DEF] _discover_all_urls (line 156)  →  from agents.pathfinder import _discover_all_urls
+[DEF] _parse_sitemap (line 188)  →  from agents.pathfinder import _parse_sitemap
+[DEF] _parse_robots_txt (line 209)  →  from agents.pathfinder import _parse_robots_txt
+[DEF] _crawl_site (line 227)  →  from agents.pathfinder import _crawl_site
+[DEF] _analyze_urls (line 265)  →  from agents.pathfinder import _analyze_urls
+[DEF] analyze_single_url (line 271)  →  from agents.pathfinder import analyze_single_url
+[DEF] _analyze_single_url (line 288)  →  from agents.pathfinder import _analyze_single_url
+[DEF] _create_parameter_surface (line 327)  →  from agents.pathfinder import _create_parameter_surface
+[DEF] _create_form_surface (line 360)  →  from agents.pathfinder import _create_form_surface
+[DEF] _create_page_surface (line 404)  →  from agents.pathfinder import _create_page_surface
+[DEF] _create_api_surface (line 424)  →  from agents.pathfinder import _create_api_surface
+[DEF] _extract_forms (line 439)  →  from agents.pathfinder import _extract_forms
+[DEF] _classify_page_type (line 476)  →  from agents.pathfinder import _classify_page_type
+[DEF] _extract_api_endpoints (line 491)  →  from agents.pathfinder import _extract_api_endpoints
+[DEF] _formulate_attack_strategy (line 509)  →  from agents.pathfinder import _formulate_attack_strategy
+[DEF] _prioritize_targets (line 554)  →  from agents.pathfinder import _prioritize_targets
+[DEF] _generate_payload_recommendations (line 559)  →  from agents.pathfinder import _generate_payload_recommendations
+[DEF] _generate_statistics (line 586)  →  from agents.pathfinder import _generate_statistics
+[DEF] _surface_to_dict (line 611)  →  from agents.pathfinder import _surface_to_dict
+[CLASS] AIPayloadMutator (line 23)  →  from agents.shadow_proxy_master import AIPayloadMutator
+[DEF] __init__ (line 29)  →  from agents.shadow_proxy_master import __init__
+[DEF] mutate_payload (line 93)  →  from agents.shadow_proxy_master import mutate_payload
+[DEF] _ai_guided_mutations (line 126)  →  from agents.shadow_proxy_master import _ai_guided_mutations
+[DEF] _waf_bypass_mutations (line 157)  →  from agents.shadow_proxy_master import _waf_bypass_mutations
+[CLASS] ProxyInterceptor (line 172)  →  from agents.shadow_proxy_master import ProxyInterceptor
+[DEF] __init__ (line 177)  →  from agents.shadow_proxy_master import __init__
+[DEF] add_injection_rule (line 185)  →  from agents.shadow_proxy_master import add_injection_rule
+[ASYNC DEF] intercept_http_request (line 198)  →  from agents.shadow_proxy_master import intercept_http_request
+[ASYNC DEF] _inject_payloads (line 224)  →  from agents.shadow_proxy_master import _inject_payloads
+[ASYNC DEF] _execute_request (line 309)  →  from agents.shadow_proxy_master import _execute_request
+[ASYNC DEF] _analyze_response (line 337)  →  from agents.shadow_proxy_master import _analyze_response
+[CLASS] ShadowProxyMaster (line 393)  →  from agents.shadow_proxy_master import ShadowProxyMaster
+[DEF] __init__ (line 398)  →  from agents.shadow_proxy_master import __init__
+[ASYNC DEF] start_proxy_server (line 420)  →  from agents.shadow_proxy_master import start_proxy_server
+[ASYNC DEF] _handle_connection (line 455)  →  from agents.shadow_proxy_master import _handle_connection
+[ASYNC DEF] _parse_http_request (line 490)  →  from agents.shadow_proxy_master import _parse_http_request
+[ASYNC DEF] _forward_request (line 532)  →  from agents.shadow_proxy_master import _forward_request
+[ASYNC DEF] _send_http_response (line 561)  →  from agents.shadow_proxy_master import _send_http_response
+[ASYNC DEF] _handle_dashboard_connection (line 585)  →  from agents.shadow_proxy_master import _handle_dashboard_connection
+[ASYNC DEF] _handle_dashboard_command (line 613)  →  from agents.shadow_proxy_master import _handle_dashboard_command
+[ASYNC DEF] _dashboard_callback (line 639)  →  from agents.shadow_proxy_master import _dashboard_callback
+[DEF] add_injection_rule (line 661)  →  from agents.shadow_proxy_master import add_injection_rule
+[DEF] get_stats (line 667)  →  from agents.shadow_proxy_master import get_stats
+[ASYNC DEF] demo_shadowproxy (line 678)  →  from agents.shadow_proxy_master import demo_shadowproxy
+[CLASS] ShadowXAgent (line 19)  →  from agents.shadowx_agent import ShadowXAgent
+[DEF] __init__ (line 33)  →  from agents.shadowx_agent import __init__
+[DEF] analyze_and_attack (line 55)  →  from agents.shadowx_agent import analyze_and_attack
+[DEF] _has_jwt_tokens (line 153)  →  from agents.shadowx_agent import _has_jwt_tokens
+[DEF] _attack_jwt (line 177)  →  from agents.shadowx_agent import _attack_jwt
+[DEF] _create_none_algorithm_jwt (line 234)  →  from agents.shadowx_agent import _create_none_algorithm_jwt
+[DEF] _attack_cache_poisoning (line 258)  →  from agents.shadowx_agent import _attack_cache_poisoning
+[DEF] _attack_open_redirect_deep (line 308)  →  from agents.shadowx_agent import _attack_open_redirect_deep
+[DEF] _attack_request_smuggling (line 384)  →  from agents.shadowx_agent import _attack_request_smuggling
+[DEF] _has_graphql (line 489)  →  from agents.shadowx_agent import _has_graphql
+[DEF] _attack_graphql (line 508)  →  from agents.shadowx_agent import _attack_graphql
+[DEF] _attack_ssrf_dns_rebinding (line 577)  →  from agents.shadowx_agent import _attack_ssrf_dns_rebinding
+[DEF] _attack_blind_xss (line 668)  →  from agents.shadowx_agent import _attack_blind_xss
+[CLASS] DOMCollector (line 16)  →  from agents.dom_collector import DOMCollector
+[DEF] __init__ (line 22)  →  from agents.dom_collector import __init__
+[DEF] get_static_dom (line 45)  →  from agents.dom_collector import get_static_dom
+[DEF] get_dynamic_dom (line 77)  →  from agents.dom_collector import get_dynamic_dom
+[DEF] get_dom_after_payload (line 130)  →  from agents.dom_collector import get_dom_after_payload
+[DEF] _extract_dom_info (line 188)  →  from agents.dom_collector import _extract_dom_info
+[DEF] _check_success_indicators (line 253)  →  from agents.dom_collector import _check_success_indicators
+[DEF] _save_html_file (line 294)  →  from agents.dom_collector import _save_html_file
+[DEF] _get_local_storage (line 310)  →  from agents.dom_collector import _get_local_storage
+[DEF] _get_console_logs (line 323)  →  from agents.dom_collector import _get_console_logs
+[DEF] close_driver (line 335)  →  from agents.dom_collector import close_driver
+[DEF] __del__ (line 343)  →  from agents.dom_collector import __del__
+[DEF] collect_dom_for_mission (line 350)  →  from agents.dom_collector import collect_dom_for_mission
+[CLASS] MutationEngine (line 13)  →  from agents.mail_mutator import MutationEngine
+[DEF] __init__ (line 19)  →  from agents.mail_mutator import __init__
+[DEF] generate_mutations (line 53)  →  from agents.mail_mutator import generate_mutations
+[DEF] _detect_context (line 98)  →  from agents.mail_mutator import _detect_context
+[DEF] _generate_base_email_mutations (line 123)  →  from agents.mail_mutator import _generate_base_email_mutations
+[DEF] _generate_contextual_mutations (line 161)  →  from agents.mail_mutator import _generate_contextual_mutations
+[DEF] _generate_ai_heuristic_mutations (line 234)  →  from agents.mail_mutator import _generate_ai_heuristic_mutations
+[DEF] _generate_encoding_mutations (line 302)  →  from agents.mail_mutator import _generate_encoding_mutations
 [CLASS] PDFExporter (line 17)  →  from izvestaji.pdf_exporter import PDFExporter
 [DEF] __init__ (line 23)  →  from izvestaji.pdf_exporter import __init__
 [DEF] _setup_custom_styles (line 31)  →  from izvestaji.pdf_exporter import _setup_custom_styles
@@ -247,6 +364,20 @@
 [DEF] _create_footer (line 437)  →  from izvestaji.pdf_exporter import _create_footer
 [DEF] _add_watermark (line 470)  →  from izvestaji.pdf_exporter import _add_watermark
 [DEF] export_pdf (line 510)  →  from izvestaji.pdf_exporter import export_pdf
+[CLASS] ProofCollector (line 22)  →  from izvestaji.proof_collector import ProofCollector
+[DEF] __init__ (line 28)  →  from izvestaji.proof_collector import __init__
+[DEF] _setup_chrome_driver (line 49)  →  from izvestaji.proof_collector import _setup_chrome_driver
+[DEF] capture_proof (line 83)  →  from izvestaji.proof_collector import capture_proof
+[DEF] _execute_payload_and_capture (line 161)  →  from izvestaji.proof_collector import _execute_payload_and_capture
+[DEF] _test_xss_payload (line 192)  →  from izvestaji.proof_collector import _test_xss_payload
+[DEF] _test_sqli_payload (line 252)  →  from izvestaji.proof_collector import _test_sqli_payload
+[DEF] _test_generic_payload (line 310)  →  from izvestaji.proof_collector import _test_generic_payload
+[DEF] _submit_post_data (line 342)  →  from izvestaji.proof_collector import _submit_post_data
+[DEF] _take_screenshot (line 370)  →  from izvestaji.proof_collector import _take_screenshot
+[DEF] _save_html_source (line 393)  →  from izvestaji.proof_collector import _save_html_source
+[DEF] _create_proof_report (line 422)  →  from izvestaji.proof_collector import _create_proof_report
+[DEF] _generate_proof_id (line 475)  →  from izvestaji.proof_collector import _generate_proof_id
+[DEF] close (line 482)  →  from izvestaji.proof_collector import close
 [CLASS] VulnSeverity (line 19)  →  from logic.vuln_mapper import VulnSeverity
 [CLASS] VulnType (line 31)  →  from logic.vuln_mapper import VulnType
 [CLASS] VulnStatus (line 57)  →  from logic.vuln_mapper import VulnStatus
@@ -343,9 +474,38 @@
 [DEF] _combine_results (line 485)  →  from logic.waf_behavior_classifier import _combine_results
 [DEF] _generate_recommendations (line 541)  →  from logic.waf_behavior_classifier import _generate_recommendations
 [DEF] classify_waf_behavior (line 602)  →  from logic.waf_behavior_classifier import classify_waf_behavior
+[CLASS] TrafficShaper (line 17)  →  from logic.traffic_shaper import TrafficShaper
+[DEF] __init__ (line 28)  →  from logic.traffic_shaper import __init__
+[DEF] get_session (line 98)  →  from logic.traffic_shaper import get_session
+[DEF] _generate_random_headers (line 127)  →  from logic.traffic_shaper import _generate_random_headers
+[DEF] _apply_rate_limiting (line 144)  →  from logic.traffic_shaper import _apply_rate_limiting
+[DEF] _add_random_delay (line 171)  →  from logic.traffic_shaper import _add_random_delay
+[DEF] _get_proxy (line 178)  →  from logic.traffic_shaper import _get_proxy
+[DEF] encode_payload (line 193)  →  from logic.traffic_shaper import encode_payload
+[DEF] make_stealthy_request (line 219)  →  from logic.traffic_shaper import make_stealthy_request
+[DEF] batch_requests (line 325)  →  from logic.traffic_shaper import batch_requests
+[DEF] add_proxy (line 368)  →  from logic.traffic_shaper import add_proxy
+[DEF] update_config (line 373)  →  from logic.traffic_shaper import update_config
+[DEF] clear_sessions (line 378)  →  from logic.traffic_shaper import clear_sessions
+[DEF] get_stealth_stats (line 386)  →  from logic.traffic_shaper import get_stealth_stats
+[CLASS] FuzzEngine (line 14)  →  from logic.fuzz_engine import FuzzEngine
+[DEF] __init__ (line 24)  →  from logic.fuzz_engine import __init__
+[DEF] generate_fuzzing_payloads (line 147)  →  from logic.fuzz_engine import generate_fuzzing_payloads
+[DEF] _fuzz_xss (line 176)  →  from logic.fuzz_engine import _fuzz_xss
+[DEF] _fuzz_sqli (line 217)  →  from logic.fuzz_engine import _fuzz_sqli
+[DEF] _fuzz_cmdi (line 248)  →  from logic.fuzz_engine import _fuzz_cmdi
+[DEF] _fuzz_lfi (line 267)  →  from logic.fuzz_engine import _fuzz_lfi
+[DEF] _fuzz_ssrf (line 292)  →  from logic.fuzz_engine import _fuzz_ssrf
+[DEF] _fuzz_xxe (line 307)  →  from logic.fuzz_engine import _fuzz_xxe
+[DEF] _generic_fuzz (line 311)  →  from logic.fuzz_engine import _generic_fuzz
+[DEF] _mutate_payloads (line 334)  →  from logic.fuzz_engine import _mutate_payloads
+[DEF] smart_parameter_analysis (line 384)  →  from logic.fuzz_engine import smart_parameter_analysis
+[DEF] generate_smart_fuzzing_suite (line 416)  →  from logic.fuzz_engine import generate_smart_fuzzing_suite
 [DEF] extract_definitions_from_file (line 7)  →  from tools.module_mapper import extract_definitions_from_file
 [DEF] scan_project (line 16)  →  from tools.module_mapper import scan_project
 [DEF] write_summary (line 28)  →  from tools.module_mapper import write_summary
+[DEF] detect_dataflow (line 24)  →  from tools.dataflow_summar import detect_dataflow
+[DEF] main (line 47)  →  from tools.dataflow_summar import main
 [CLASS] ConsciousnessLevel (line 22)  →  from ai_core.CORE_System import ConsciousnessLevel
 [CLASS] EventPriority (line 29)  →  from ai_core.CORE_System import EventPriority
 [CLASS] MemoryType (line 35)  →  from ai_core.CORE_System import MemoryType
@@ -420,3 +580,26 @@
 [ASYNC DEF] _monitor_modules (line 789)  →  from ai_core.Core_Module_Orchestrator import _monitor_modules
 [ASYNC DEF] _handle_module_error (line 822)  →  from ai_core.Core_Module_Orchestrator import _handle_module_error
 [ASYNC DEF] _handle_vulnerability_found (line 830)  →  from ai_core.Core_Module_Orchestrator import _handle_vulnerability_found
+[CLASS] VulnType (line 11)  →  from smart.xse_engine import VulnType
+[CLASS] ConfidenceLevel (line 22)  →  from smart.xse_engine import ConfidenceLevel
+[CLASS] StrategyDecision (line 30)  →  from smart.xse_engine import StrategyDecision
+[CLASS] ShadowFoxXSE (line 40)  →  from smart.xse_engine import ShadowFoxXSE
+[DEF] __init__ (line 51)  →  from smart.xse_engine import __init__
+[DEF] _init_vulnerability_patterns (line 67)  →  from smart.xse_engine import _init_vulnerability_patterns
+[DEF] _init_technology_risks (line 121)  →  from smart.xse_engine import _init_technology_risks
+[DEF] _init_payload_effectiveness (line 146)  →  from smart.xse_engine import _init_payload_effectiveness
+[DEF] analyze_and_strategize (line 167)  →  from smart.xse_engine import analyze_and_strategize
+[DEF] _analyze_technology_risks (line 202)  →  from smart.xse_engine import _analyze_technology_risks
+[DEF] _analyze_forms_for_vulns (line 236)  →  from smart.xse_engine import _analyze_forms_for_vulns
+[DEF] _analyze_endpoints_for_vulns (line 289)  →  from smart.xse_engine import _analyze_endpoints_for_vulns
+[DEF] _analyze_security_headers (line 332)  →  from smart.xse_engine import _analyze_security_headers
+[DEF] _prioritize_strategies (line 373)  →  from smart.xse_engine import _prioritize_strategies
+[DEF] _get_recommended_payloads (line 395)  →  from smart.xse_engine import _get_recommended_payloads
+[DEF] _get_expected_indicators (line 426)  →  from smart.xse_engine import _get_expected_indicators
+[DEF] _get_xss_payloads_for_form (line 437)  →  from smart.xse_engine import _get_xss_payloads_for_form
+[DEF] _get_sqli_payloads_for_form (line 446)  →  from smart.xse_engine import _get_sqli_payloads_for_form
+[DEF] _get_lfi_payloads (line 455)  →  from smart.xse_engine import _get_lfi_payloads
+[DEF] _get_ssrf_payloads (line 465)  →  from smart.xse_engine import _get_ssrf_payloads
+[DEF] _get_xss_payloads_no_csp (line 475)  →  from smart.xse_engine import _get_xss_payloads_no_csp
+[DEF] explain_strategy_decision (line 484)  →  from smart.xse_engine import explain_strategy_decision
+[DEF] update_learning_stats (line 514)  →  from smart.xse_engine import update_learning_stats

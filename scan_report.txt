@@ -1,0 +1,664 @@
+
+📁 shadow_orchestrator_graph.py
+  🔸 Functions:
+    - dynamic_import
+    - resolve_args
+    - run_mission
+
+📁 dashboard.py
+  🔸 Functions:
+    - print_banner
+    - show_phase
+    - success_phase
+    - error_phase
+
+📁 core/shadowfox_db.py
+  🔹 Classes:
+    - ShadowFoxDB
+  🔸 Functions:
+    - __init__
+    - _create_tables
+    - log_recon_result
+    - log_mutation
+    - log_jwt_attack
+    - log_ai_decision
+    - _insert
+    - get_mission_history
+
+📁 core/db.py
+  🔹 Classes:
+    - ShadowFoxDB
+  🔸 Functions:
+    - get_db
+    - __init__
+    - _init_database
+    - get_connection
+    - create_mission
+    - get_mission
+    - update_mission_status
+    - log_module_activity
+    - get_module_activities
+    - store_payload
+    - get_payload
+    - update_payload_success
+    - get_best_payloads
+    - store_vulnerability
+    - get_vulnerabilities
+    - store_intelligence
+    - get_intelligence_patterns
+    - publish_event
+    - get_unprocessed_events
+    - mark_event_processed
+    - store_metric
+    - get_metrics
+    - get_mission_stats
+    - cleanup_old_data
+
+📁 core/payload_library.py
+  🔹 Classes:
+    - PayloadLibrary
+  🔸 Functions:
+    - __init__
+    - _init_base_payloads
+    - _get_base_payloads
+    - get_payloads_by_type
+    - add_custom_payload
+    - update_payload_success_rate
+    - get_top_payloads_by_success
+    - search_payloads
+    - get_payload_stats
+
+📁 core/payload_seeder.py
+  🔹 Classes:
+    - PayloadLibrarySeeder
+  🔸 Functions:
+    - __init__
+    - seed_all_payloads
+    - _get_xss_payloads
+    - _get_sqli_payloads
+    - _get_lfi_payloads
+    - _get_ssrf_payloads
+    - _get_ssti_payloads
+    - _get_jwt_payloads
+    - _get_cmd_injection_payloads
+    - _get_xxe_payloads
+    - _get_rfi_payloads
+    - _get_idor_payloads
+    - _get_csrf_payloads
+    - _get_ldap_payloads
+    - _get_nosql_payloads
+
+📁 core/shadow_mail_payloads.py
+  🔸 Functions:
+    - get_email_payloads
+    - generate_targeted_email_payloads
+
+📁 agents/recon_agent.py
+  🔹 Classes:
+    - ReconAgent
+  🔸 Functions:
+    - recon
+    - __init__
+    - analyze_target
+    - _get_basic_info
+    - _analyze_headers
+    - _detect_technologies
+    - _scan_common_ports
+    - _discover_endpoints
+    - _find_forms
+    - _get_ssl_info
+    - _identify_potential_vulns
+    - check_port
+    - check_endpoint
+
+📁 agents/jwt_attack.py
+  🔹 Classes:
+    - JWTInfo
+    - AttackResult
+    - JWTForgeAI
+  🔸 Functions:
+    - run_jwt_attack
+    - main
+    - __init__
+    - _setup_logging
+    - _generate_rsa_keypair
+    - decode_jwt_safe
+    - analyze_jwt_security
+    - attempt_none_algorithm
+    - attempt_hmac_bruteforce
+    - attempt_algorithm_confusion
+    - attempt_key_confusion
+    - validate_token_on_target
+    - run_full_attack_suite
+    - _update_ai_learning
+    - _save_attack_results
+    - generate_report
+
+📁 agents/mutation_engine.py
+  🔹 Classes:
+    - MutationType
+    - MutationResult
+    - ShadowFoxMutationEngine
+  🔸 Functions:
+    - __init__
+    - mutate_rce_payload
+    - _rce_command_variations
+    - _rce_context_mutations
+    - _rce_encoding_mutations
+    - _rce_waf_bypass_mutations
+    - _rce_polyglot_mutations
+    - mutate_ssrf_payload
+    - _ssrf_url_mutations
+    - _ssrf_ip_mutations
+    - _ssrf_protocol_mutations
+    - _ssrf_encoding_mutations
+    - _ssrf_redirect_mutations
+    - mutate_js_payload
+    - _js_string_obfuscation
+    - _js_char_encoding_obfuscation
+    - mutate
+    - _js_function_obfuscation
+
+📁 agents/genetic_engine.py
+  🔹 Classes:
+    - PayloadGene
+    - PayloadChromosome
+    - GeneticWAFBypass
+  🔸 Functions:
+    - __post_init__
+    - __init__
+    - _load_waf_signatures
+    - _initialize_bypass_patterns
+    - create_initial_population
+    - _payload_to_genes
+    - evaluate_fitness
+    - _calculate_waf_bypass_score
+    - _simulate_execution_probability
+    - _calculate_stealth_score
+    - _calculate_novelty_score
+    - selection
+    - crossover
+    - mutate
+    - _encoding_mutation
+    - _obfuscation_mutation
+    - _evasion_mutation
+    - _syntax_mutation
+    - _polyglot_mutation
+    - _url_encode
+    - _double_url_encode
+    - _html_encode
+    - _unicode_encode
+    - _base64_fragments
+    - _hex_encode
+    - _char_code_encode
+    - _mixed_case
+    - _comment_injection
+    - _whitespace_manipulation
+    - _concatenation_obfuscation
+    - _function_aliasing
+    - _property_access_obfuscation
+    - _eval_construction
+    - _string_splitting
+    - _template_literals
+    - _syntax_variation
+    - _protocol_smuggling
+    - _parameter_pollution
+    - _boundary_crossing
+    - _context_switching
+    - _polyglot_construction
+    - _genes_to_payload
+    - _random_mutation
+    - evolve_generation
+    - get_best_payloads
+    - adaptive_evolution
+
+📁 agents/cl0d_core.py
+  🔹 Classes:
+    - AdaptationLevel
+    - MutationStrategy
+    - DefenseSignature
+    - MutationGene
+    - AttackResponse
+    - AIDecision
+    - CL0D_Neural_Core
+    - CL0D_MutationEngine
+  🔸 Functions:
+    - __post_init__
+    - __init__
+    - analyze_defense_response
+    - calculate_adaptation_strategy
+    - _extract_features
+    - _generate_reasoning
+    - _generate_payload_mutations
+    - _encode_payload
+    - _obfuscate_payload
+    - _fragment_payload
+    - _polyglot_payload
+    - _metamorphic_payload
+    - _generate_header_adaptations
+    - _calculate_timing_adjustment
+    - _select_bypass_technique
+    - learn_from_response
+    - __init__
+    - _initialize_mutation_dna
+    - _detect_success_indicators
+    - _detect_failure_indicators
+    - _log_successful_bypass
+    - _display_progress
+
+📁 agents/most_advanced.py
+  🔹 Classes:
+    - AdaptationLevel
+    - MutationStrategy
+    - DefenseSignature
+    - MutationGene
+    - AttackResponse
+    - AIDecision
+    - CL0D_Neural_Core
+    - CL0D_MutationEngine
+  🔸 Functions:
+    - __post_init__
+    - __init__
+    - analyze_defense_response
+    - calculate_adaptation_strategy
+    - _extract_features
+    - _generate_reasoning
+    - _generate_payload_mutations
+    - _encode_payload
+    - _obfuscate_payload
+    - _fragment_payload
+    - _polyglot_payload
+    - _metamorphic_payload
+    - _generate_header_adaptations
+    - _calculate_timing_adjustment
+    - _select_bypass_technique
+    - learn_from_response
+    - __init__
+    - _initialize_mutation_dna
+    - _detect_success_indicators
+    - _detect_failure_indicators
+    - _log_successful_bypass
+    - _display_progress
+
+📁 agents/1.py
+  🔹 Classes:
+    - CL0D_CLI
+  🔸 Functions:
+    - __init__
+    - print_banner
+    - get_target_info
+    - get_custom_config
+    - confirm_execution
+    - generate_report
+    - display_summary
+    - signal_handler
+
+📁 agents/smart_shadow_agent.py
+  🔹 Classes:
+    - SmartShadowAgent
+  🔸 Functions:
+    - __init__
+    - attack_target
+    - _get_target_hash
+    - _analyze_target_context
+    - _generate_smart_payloads
+    - _calculate_payload_priority
+    - _execute_smart_attack
+    - _identify_attack_surfaces
+    - _execute_single_attack
+    - _analyze_response
+    - _extract_indicators
+    - _learn_from_success
+    - _learn_from_failure
+    - _adapt_strategy
+    - _dynamic_strategy_adjustment
+    - _generate_ai_insights
+    - _get_expected_indicators
+    - _get_builtin_payloads
+
+📁 agents/pathfinder.py
+  🔹 Classes:
+    - AttackSurface
+    - AIPathfinder
+  🔸 Functions:
+    - __init__
+    - analyze_site_map
+    - _discover_all_urls
+    - _parse_sitemap
+    - _parse_robots_txt
+    - _crawl_site
+    - _analyze_urls
+    - _analyze_single_url
+    - _create_parameter_surface
+    - _create_form_surface
+    - _create_page_surface
+    - _create_api_surface
+    - _extract_forms
+    - _classify_page_type
+    - _extract_api_endpoints
+    - _formulate_attack_strategy
+    - _prioritize_targets
+    - _generate_payload_recommendations
+    - _generate_statistics
+    - _surface_to_dict
+    - analyze_single_url
+
+📁 agents/shadow_proxy_master.py
+  🔹 Classes:
+    - AIPayloadMutator
+    - ProxyInterceptor
+    - ShadowProxyMaster
+  🔸 Functions:
+    - __init__
+    - mutate_payload
+    - _ai_guided_mutations
+    - _waf_bypass_mutations
+    - __init__
+    - add_injection_rule
+    - __init__
+    - add_injection_rule
+    - get_stats
+
+📁 agents/shadowx_agent.py
+  🔹 Classes:
+    - ShadowXAgent
+  🔸 Functions:
+    - __init__
+    - analyze_and_attack
+    - _has_jwt_tokens
+    - _attack_jwt
+    - _create_none_algorithm_jwt
+    - _attack_cache_poisoning
+    - _attack_open_redirect_deep
+    - _attack_request_smuggling
+    - _has_graphql
+    - _attack_graphql
+    - _attack_ssrf_dns_rebinding
+    - _attack_blind_xss
+
+📁 agents/dom_collector.py
+  🔹 Classes:
+    - DOMCollector
+  🔸 Functions:
+    - collect_dom_for_mission
+    - __init__
+    - get_static_dom
+    - get_dynamic_dom
+    - get_dom_after_payload
+    - _extract_dom_info
+    - _check_success_indicators
+    - _save_html_file
+    - _get_local_storage
+    - _get_console_logs
+    - close_driver
+    - __del__
+
+📁 agents/mail_mutator.py
+  🔹 Classes:
+    - MutationEngine
+  🔸 Functions:
+    - __init__
+    - generate_mutations
+    - _detect_context
+    - _generate_base_email_mutations
+    - _generate_contextual_mutations
+    - _generate_ai_heuristic_mutations
+
+📁 izvestaji/pdf_exporter.py
+  🔹 Classes:
+    - PDFExporter
+  🔸 Functions:
+    - export_pdf
+    - __init__
+    - _setup_custom_styles
+    - create_report
+    - _create_header
+    - _create_executive_summary
+    - _create_mission_details
+    - _create_vulnerability_section
+    - _create_technical_details
+    - _create_recommendations
+    - _create_appendix
+    - _create_footer
+    - _add_watermark
+
+📁 izvestaji/proof_collector.py
+  🔹 Classes:
+    - ProofCollector
+  🔸 Functions:
+    - __init__
+    - _setup_chrome_driver
+    - capture_proof
+    - _execute_payload_and_capture
+    - _test_xss_payload
+    - _test_sqli_payload
+    - _test_generic_payload
+    - _submit_post_data
+    - _take_screenshot
+    - _save_html_source
+    - _create_proof_report
+    - _generate_proof_id
+    - close
+
+📁 logic/vuln_mapper.py
+  🔹 Classes:
+    - VulnSeverity
+    - VulnType
+    - VulnStatus
+    - VulnFingerprint
+    - Vulnerability
+    - VulnerabilityMapper
+  🔸 Functions:
+    - __init__
+    - _generate_id
+    - _generate_fingerprint
+    - _calculate_severity
+    - print_vulnerability_table
+    - _truncate_url
+
+📁 logic/mutation.py
+  🔹 Classes:
+    - MutationEngine
+  🔸 Functions:
+    - __init__
+    - _init_payload_library
+    - generate_mutations
+    - _create_mutation
+    - _apply_encoding
+    - _vary_case
+    - _inject_comments
+    - _insert_null_bytes
+    - _apply_waf_bypass
+    - _apply_concatenation
+    - _apply_padding
+    - generate_smart_mutations
+    - _select_contextual_payloads
+    - save_payload_to_library
+    - get_best_payloads
+    - create_payload_variants
+
+📁 logic/replay_manager.py
+  🔹 Classes:
+    - PayloadType
+    - ReplayRequest
+    - ReplayResponse
+    - MutationEngine
+    - ReplayManager
+  🔸 Functions:
+    - __init__
+    - _load_base_payloads
+    - generate_mutations
+    - _case_mutation
+    - _encoding_mutation
+    - _comment_mutation
+    - _concat_mutation
+    - _bypass_mutation
+    - __init__
+    - replay_attack
+    - _detect_injectable_params
+    - _prepare_request_with_payload
+    - _analyze_responses
+
+📁 logic/ai_reporter_module.py
+  🔹 Classes:
+    - AIReporter
+  🔸 Functions:
+    - __init__
+    - _get_recommendation_for_type
+
+📁 logic/waf_behavior_classifier.py
+  🔹 Classes:
+    - WAFBehaviorClassifier
+  🔸 Functions:
+    - classify_waf_behavior
+    - __init__
+    - _load_waf_signatures
+    - analyze_waf_behavior
+    - _passive_fingerprinting
+    - _behavioral_testing
+    - _timing_analysis
+    - _error_page_analysis
+    - _combine_results
+    - _generate_recommendations
+
+📁 logic/traffic_shaper.py
+  🔹 Classes:
+    - TrafficShaper
+  🔸 Functions:
+    - __init__
+    - get_session
+    - _generate_random_headers
+    - _apply_rate_limiting
+    - _add_random_delay
+    - _get_proxy
+    - encode_payload
+    - make_stealthy_request
+    - batch_requests
+    - add_proxy
+    - update_config
+    - clear_sessions
+    - get_stealth_stats
+
+📁 logic/fuzz_engine.py
+  🔹 Classes:
+    - FuzzEngine
+  🔸 Functions:
+    - __init__
+    - generate_fuzzing_payloads
+    - _fuzz_xss
+    - _fuzz_sqli
+    - _fuzz_cmdi
+    - _fuzz_lfi
+    - _fuzz_ssrf
+    - _fuzz_xxe
+    - _generic_fuzz
+    - _mutate_payloads
+    - smart_parameter_analysis
+    - generate_smart_fuzzing_suite
+
+📁 tools/module_mapper.py
+  🔸 Functions:
+    - extract_definitions_from_file
+    - scan_project
+    - write_summary
+
+📁 tools/dataflow_summary.py
+  🔸 Functions:
+    - detect_dataflow
+    - main
+
+📁 tools/module_structure_scanner.py
+  🔸 Functions:
+    - scan_python_structure
+    - extract_structure
+    - format_output
+
+📁 ai_core/CORE_System.py
+  🔹 Classes:
+    - ConsciousnessLevel
+    - EventPriority
+    - MemoryType
+    - ConsciousEvent
+    - Memory
+    - ConsciousModule
+    - ShadowFoxConsciousCore
+    - ShadowSpiderConscious
+    - PayloadMutatorConscious
+  🔸 Functions:
+    - __post_init__
+    - __post_init__
+    - __init__
+    - process_emotion
+    - create_memory
+    - recall_memory
+    - __init__
+    - register_module
+    - emit_conscious_event
+    - _process_global_emotion
+    - _update_collective_memory
+    - _make_conscious_decision
+    - _find_similar_situations
+    - _generate_decision
+    - _broadcast_decision
+    - _get_current_context
+    - _start_consciousness_loop
+    - _process_memory_decay
+    - _dream_sequence
+    - _generate_dream_insights
+    - _find_common_factors
+    - _consolidate_memories
+    - get_consciousness_report
+    - shutdown
+    - __init__
+    - on_conscious_decision
+    - __init__
+    - on_conscious_decision
+    - consciousness_loop
+
+📁 ai_core/Core_Module_Orchestrator.py
+  🔹 Classes:
+    - ModuleStatus
+    - ModulePriority
+    - ModuleConfig
+    - ModuleInstance
+    - BaseShadowFoxModule
+    - ShadowFoxOrchestrator
+  🔸 Functions:
+    - __init__
+    - log_activity
+    - emit_event
+    - update_performance_stats
+    - get_performance_stats
+    - __init__
+    - _register_core_handlers
+    - _load_default_configurations
+    - register_module_config
+    - get_load_order
+    - can_load
+
+📁 smart/xse_engine.py
+  🔹 Classes:
+    - VulnType
+    - ConfidenceLevel
+    - StrategyDecision
+    - ShadowFoxXSE
+  🔸 Functions:
+    - __init__
+    - _init_vulnerability_patterns
+    - _init_technology_risks
+    - _init_payload_effectiveness
+    - analyze_and_strategize
+    - _analyze_technology_risks
+    - _analyze_forms_for_vulns
+    - _analyze_endpoints_for_vulns
+    - _analyze_security_headers
+    - _prioritize_strategies
+    - _get_recommended_payloads
+    - _get_expected_indicators
+    - _get_xss_payloads_for_form
+    - _get_sqli_payloads_for_form
+    - _get_lfi_payloads
+    - _get_ssrf_payloads
+    - _get_xss_payloads_no_csp
+    - explain_strategy_decision
+    - update_learning_stats
