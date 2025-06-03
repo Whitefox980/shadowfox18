@@ -114,7 +114,18 @@ class CL0D_Neural_Core:
             MutationStrategy.POLYGLOT: np.random.random(10),
             MutationStrategy.METAMORPHIC: np.random.random(10)
         }
-        
+    # agents/most_advanced.py
+
+from types import SimpleNamespace
+
+def agent_callback(task_data):
+    if isinstance(task_data, dict):
+        task_data = SimpleNamespace(**task_data)
+
+    agent = CL0D_Neural_Core()
+    return agent.execute(task_data)
+
+    # fallback ako `execute_adaptive_attack` ne postoji
     def analyze_defense_response(self, response: AttackResponse) -> List[DefenseSignature]:
         """Identify defense mechanisms from response"""
         signatures = []

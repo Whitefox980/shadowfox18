@@ -14,27 +14,14 @@ from enum import Enum
 import logging
 import hashlib
 import random
-import sqlite3
 import os
 from pathlib import Path
 from datetime import datetime
 
-from ai_core.advanced_shadow_intelligence import AdvancedShadowIntelligence, QuantumShadowCore
+# Konstante
 MODULES_FILE = "modules_summary.txt"
 DB_PATH = "core/shadowfox_core.db"
-from ai_core.shadow_operator import ShadowFoxOperator
-from agents.smart_shadow_agent import SmartShadowAgent
-from agents.shadowx_agent import ShadowXAgent
-from agents.most_advanced import CL0D_Neural_Core
 
-# Dinamički ulaz (može i iz fajla)
-target_data = {
-    "target_url": input("🎯 Unesi metu: ").strip(),
-    "mission_id": input("🧠 Unesi Mission ID: ").strip()
-}
-
-for agent in agents:
-    activate_agent(agent, target_data)
 class MissionPhase(Enum):
     RECON = "recon"
     ANALYSIS = "analysis"
@@ -55,11 +42,11 @@ class ConfidenceLevel(Enum):
     MEDIUM = 2
     HIGH = 3
     ABSOLUTE = 4
+
 class LearningMode(Enum):
     PASSIVE = "passive"
     ACTIVE = "active"
     AGGRESSIVE = "aggressive"
-
 
 @dataclass
 class TacticalDecision:
@@ -71,18 +58,7 @@ class TacticalDecision:
     fallback_plan: Optional[str] = None
 
 @dataclass
-class RealTimeIntel:
-    """Real-time intelligence updates"""
-    timestamp: float
-    source: str
-    intel_type: str
-    data: Dict[str, Any]
-    confidence: float
-    verified: bool = False
-
-@dataclass
 class ModuleKnowledge:
-    """Knowledge base for each module"""
     name: str
     functions: List[str]
     dataflows: List[str]
@@ -90,29 +66,8 @@ class ModuleKnowledge:
     capabilities: List[str]
     best_use_cases: List[str]
 
-
-@dataclass
-class OperationalContext:
-    phase: Optional[MissionPhase] = None
-    modules: Optional[List[str]] = None
-    reasoning: Optional[str] = None
-    confidence: Optional[ConfidenceLevel] = None
-    expected_outcomes: Optional[List[str]] = None
-    fallback_plan: Optional[str] = None
-
-
-    
-    time_constraints: Optional[int] = None
-    stealth_requirements: ThreatLevel = ThreatLevel.MODERATE
-    noise_tolerance: float = 0.5
-    success_threshold: float = 0.7
-    learning_mode: LearningMode = LearningMode.ACTIVE
-    backup_strategies: List[str] = field(default_factory=list)
-
-
 @dataclass
 class MissionIntelligence:
-    """Collected intelligence about the target"""
     target_url: str
     technologies: List[str] = field(default_factory=list)
     vulnerabilities: List[str] = field(default_factory=list)
@@ -123,34 +78,30 @@ class MissionIntelligence:
 class GENERAL_SHADOW:
     """
     AI Commander that orchestrates the entire ShadowFox operation
-    - Analyzes targets intelligently
-    - Selects optimal modules and strategies
-    - Manages data flows between components
-    - Makes tactical decisions based on intelligence
     """
     
     def __init__(self):
-        self.operator = ShadowFoxOperator()
         self.knowledge_base = self._build_knowledge_base()
-        self.advanced_ai = AdvancedShadowIntelligence(self.knowledge_base)
-        self.quantum_core = QuantumShadowCore()
         self.mission_intelligence = None
         self.active_modules = []
         self.tactical_history = []
         self.stealth_mode = True
-        self.operational_context = OperationalContext()
-        self.real_time_intel = []
-        self.learning_database = {}
-        self.threat_assessment = {}
-        self.module_performance = {}
-        self.adaptive_memory = {}
         self.mission_id = None
         self._setup_logging()
-        self._init_adaptive_learning()
-        self._start_intelligence_monitoring()
+        self._init_database()
         
-    def init_db():
+    def _setup_logging(self):
+        """Setup logging for the AI commander"""
+        logging.basicConfig(
+            level=logging.INFO,
+            format='[GENERAL_SHADOW] %(asctime)s - %(levelname)s - %(message)s'
+        )
+        self.logger = logging.getLogger('GENERAL_SHADOW')
+    
+    def _init_database(self):
+        """Initialize database if it doesn't exist"""
         if not os.path.exists(DB_PATH):
+            os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
             conn = sqlite3.connect(DB_PATH)
             c = conn.cursor()
             c.execute('''
@@ -167,65 +118,6 @@ class GENERAL_SHADOW:
         else:
             print("✅ [DB] Baza već postoji.")
 
-    def _init_adaptive_learning(self):
-        print("[i] Adaptive learning init placeholder")
-    def activate_agents(self):
-        for agent in self.available_agents:
-            self.operator.activate_agent(agent, self.target_url)
-    def _start_intelligence_monitoring(self):
-        print("[i] Intelligence monitoring placeholder aktiviran")
-    def _setup_logging(self):
-        """Setup logging for the AI commander"""
-        logging.basicConfig(
-            level=logging.INFO,
-            format='[GENERAL_SHADOW] %(asctime)s - %(levelname)s - %(message)s'
-        )
-        self.logger = logging.getLogger('GENERAL_SHADOW')
-    def run(self):
-        while True:
-            command = input("🧠 GENERAL_SHADOW >> Unesi komandu (exit za kraj): ")
-            if command.lower() == "exit":
-                print("[-] Izlaz iz GENERAL_SHADOW moda.")
-                break
-            else:
-                print(f"[~] Komanda '{command}' još nije implementirana.") 
-    def load_modules():
-        if not os.path.exists(MODULES_FILE):
-            print(f"[!] Nema fajla {MODULES_FILE}")
-            return []
-        with open(MODULES_FILE, "r") as f:
-            modules = [line.strip() for line in f.readlines() if line.strip()]
-        print(f"📦 [LOADER] Učitano {len(modules)} modula.")
-        return modules
-
-    def process_command(cmd):
-        print(f"🧠 [GENERAL] Izvršavam komandu: {cmd}")
-        if cmd.startswith("moduli"):
-            mods = load_modules()
-            for m in mods:
-                print(" -", m)
-            log_command(cmd, f"{len(mods)} modula prikazano")
-        elif cmd.startswith("log"):
-            print("📜 [LOGOVI]")
-            conn = sqlite3.connect(DB_PATH)
-            c = conn.cursor()
-            for row in c.execute('SELECT * FROM mission_log ORDER BY id DESC LIMIT 10'):
-                print(f"[{row[0]}] {row[1]} => {row[2]}")
-            conn.close()
-            log_command(cmd, "Pregled logova")
-        else:
-            print("❓ Nepoznata komanda")
-            log_command(cmd, "Nepoznata komanda")
-    def log_command(command, result="OK"):
-        conn = sqlite3.connect(DB_PATH)
-        c = conn.cursor()
-        c.execute('''
-            INSERT INTO mission_log (timestamp, command, result)
-            VALUES (?, ?, ?)
-        ''', (datetime.now().isoformat(), command, result))
-        conn.commit()
-        conn.close()
-    
     def _build_knowledge_base(self) -> Dict[str, ModuleKnowledge]:
         """Build comprehensive knowledge base from scan reports"""
         knowledge = {}
@@ -403,10 +295,10 @@ class GENERAL_SHADOW:
         )
         
         return TacticalDecision(
-            phase=MissionPhase.RECON,
+            phase=MissionPhase.RECON.value,
             modules=modules,
             reasoning=reasoning,
-            confidence=ConfidenceLevel.HIGH,
+            confidence=ConfidenceLevel.HIGH.value,
             expected_outcomes=['target_profile', 'technology_stack', 'attack_surfaces']
         )
         
@@ -427,10 +319,10 @@ class GENERAL_SHADOW:
         )
         
         return TacticalDecision(
-            phase=MissionPhase.ANALYSIS,
+            phase=MissionPhase.ANALYSIS.value,
             modules=modules,
             reasoning=reasoning,
-            confidence=ConfidenceLevel.HIGH,
+            confidence=ConfidenceLevel.HIGH.value,
             expected_outcomes=['vulnerability_assessment', 'attack_strategy', 'payload_recommendations']
         )
     
@@ -482,10 +374,10 @@ class GENERAL_SHADOW:
         reasoning = ". ".join(reasoning_parts)
         
         strategy = TacticalDecision(
-            phase=MissionPhase.ATTACK,
+            phase=MissionPhase.ATTACK.value,
             modules=attack_modules,
             reasoning=reasoning,
-            confidence=ConfidenceLevel.HIGH,
+            confidence=ConfidenceLevel.HIGH.value,
             expected_outcomes=['vulnerability_exploitation', 'payload_success', 'access_gained'],
             fallback_plan="If primary attack fails, activate CL0D adaptive engine for defense analysis"
         )
@@ -494,16 +386,17 @@ class GENERAL_SHADOW:
         print(f"   {strategy.reasoning}")
         print(f"\n⚔️  SELECTED ATTACK MODULES:")
         for module in strategy.modules:
-            knowledge = self.knowledge_base.get(module, {})
-            print(f"   • {knowledge.name if hasattr(knowledge, 'name') else module}")
+            knowledge = self.knowledge_base.get(module)
+            if knowledge:
+                print(f"   • {knowledge.name}")
+            else:
+                print(f"   • {module}")
             
-        print(f"\n🎲 CONFIDENCE LEVEL: {strategy.confidence.name}")
+        print(f"\n🎲 CONFIDENCE LEVEL: HIGH")
         print(f"🔄 FALLBACK PLAN: {strategy.fallback_plan}")
         
         return strategy
-    def execute_attack(self):
-        self.set_strategy()  # postojeća funkcija
-        self.activate_agents()  # nova linija
+    
     def execute_stealth_operations(self) -> TacticalDecision:
         """Plan and execute stealth operations"""
         print(f"\n🥷 STEALTH OPERATIONS PLANNING")
@@ -518,10 +411,10 @@ class GENERAL_SHADOW:
         )
         
         strategy = TacticalDecision(
-            phase=MissionPhase.STEALTH,
+            phase=MissionPhase.STEALTH.value,
             modules=stealth_modules,
             reasoning=reasoning,
-            confidence=ConfidenceLevel.HIGH,
+            confidence=ConfidenceLevel.HIGH.value,
             expected_outcomes=['traffic_obfuscation', 'detection_evasion', 'stealth_persistence']
         )
         
@@ -529,8 +422,11 @@ class GENERAL_SHADOW:
         print(f"   {strategy.reasoning}")
         print(f"\n🥷 STEALTH MODULES:")
         for module in strategy.modules:
-            knowledge = self.knowledge_base.get(module, {})
-            print(f"   • {knowledge.name if hasattr(knowledge, 'name') else module}")
+            knowledge = self.knowledge_base.get(module)
+            if knowledge:
+                print(f"   • {knowledge.name}")
+            else:
+                print(f"   • {module}")
             
         return strategy
         
@@ -571,6 +467,66 @@ class GENERAL_SHADOW:
         print(f"   Modules Deployed: {report['modules_deployed']}")
         
         return report
+    
+    def log_command(self, command: str, result: str = "OK"):
+        """Log command to database"""
+        try:
+            conn = sqlite3.connect(DB_PATH)
+            c = conn.cursor()
+            c.execute('''
+                INSERT INTO mission_log (timestamp, command, result)
+                VALUES (?, ?, ?)
+            ''', (datetime.now().isoformat(), command, result))
+            conn.commit()
+            conn.close()
+        except Exception as e:
+            print(f"❌ Database error: {e}")
+    
+    def load_modules(self):
+        """Load modules from file"""
+        if not os.path.exists(MODULES_FILE):
+            print(f"[!] Nema fajla {MODULES_FILE}")
+            return []
+        with open(MODULES_FILE, "r") as f:
+            modules = [line.strip() for line in f.readlines() if line.strip()]
+        print(f"📦 [LOADER] Učitano {len(modules)} modula.")
+        return modules
+    
+    def process_command(self, cmd: str):
+        """Process console command"""
+        print(f"🧠 [GENERAL] Izvršavam komandu: {cmd}")
+        if cmd.startswith("moduli"):
+            mods = self.load_modules()
+            for m in mods:
+                print(" -", m)
+            self.log_command(cmd, f"{len(mods)} modula prikazano")
+        elif cmd.startswith("log"):
+            print("📜 [LOGOVI]")
+            try:
+                conn = sqlite3.connect(DB_PATH)
+                c = conn.cursor()
+                for row in c.execute('SELECT * FROM mission_log ORDER BY id DESC LIMIT 10'):
+                    print(f"[{row[0]}] {row[1]} => {row[2]}")
+                conn.close()
+                self.log_command(cmd, "Pregled logova")
+            except Exception as e:
+                print(f"❌ Database error: {e}")
+        else:
+            print("❓ Nepoznata komanda")
+            self.log_command(cmd, "Nepoznata komanda")
+    
+    def start_console(self):
+        """Start console mode"""
+        print("🧠 [GENERAL] Konzola pokrenuta. Kucaj komandu (moduli, log, exit):")
+        while True:
+            try:
+                cmd = input(">> ").strip()
+                if cmd.lower() in ("exit", "quit"):
+                    print("👋 Zatvaram konzolu...")
+                    break
+                self.process_command(cmd)
+            except Exception as e:
+                print(f"[ERROR] {e}")
         
     def interactive_command_mode(self):
         """Interactive command mode for user interaction"""
@@ -585,6 +541,7 @@ class GENERAL_SHADOW:
             print("4. 📋 Generate Mission Report")
             print("5. 🧠 Show Knowledge Base")
             print("6. 📊 Mission Status")
+            print("7. 💻 Console Mode")
             print("0. 🚪 Exit")
             
             choice = input(f"\n👤 Commander, your orders: ").strip()
@@ -597,22 +554,15 @@ class GENERAL_SHADOW:
                     if decision == 'y':
                         self.tactical_history.append(self._plan_reconnaissance(target))
                         print("✅ Analysis completed and logged")
+                        
             elif choice == '2':
                 if self.mission_intelligence:
-                    self.strategy = self.formulate_attack_strategy()
+                    strategy = self.formulate_attack_strategy()
                     decision = input(f"\n⚔️  Execute attack strategy? (y/n): ").strip().lower()
                     if decision == 'y':
-            # POZOVI OPERATORA
-                        from ai_core.shadow_operator import ShadowFoxOperator
-                        operator = ShadowFoxOperator()
-                        mission_id = operator.create_mission(
-                           self.mission_intelligence['target_url'],
-                           "Napad preko GENERALA"
-                        )
-                        operator.execute_mission(mission_id)
-
-                        self.tactical_history.append(self.strategy)
-                        print("✅ Attack strategy deployed via Shadow Operator")
+                        # Here you would integrate with ShadowFoxOperator
+                        self.tactical_history.append(strategy)
+                        print("✅ Attack strategy formulated and logged")
                 else:
                     print("❌ No target analyzed. Run target analysis first.")        
                     
@@ -638,11 +588,12 @@ class GENERAL_SHADOW:
             elif choice == '6':
                 self._display_mission_status()
                 
+            elif choice == '7':
+                self.start_console()
+                
             elif choice == '0':
                 print("🫡 GENERAL_SHADOW signing off. Mission complete.")
                 break
-            elif choice == '7':
-                self._display_mission_report_summary()    
             else:
                 print("❌ Invalid command. Try again.")
                 
@@ -654,34 +605,6 @@ class GENERAL_SHADOW:
             print(f"\n📦 {knowledge.name}")
             print(f"   Capabilities: {', '.join(knowledge.capabilities)}")
             print(f"   Best Use: {', '.join(knowledge.best_use_cases)}")
-
-    def _display_mission_report_summary(self):
-        import json
-        import glob
-
-        print("\n🧠 MISSION REPORT SUMMARY")
-        try:
-            report_files = sorted(glob.glob("mission_report_*.json"), reverse=True)
-            if not report_files:
-                print("⚠️  No reports found.")
-                return
-
-            with open(report_files[0], "r") as f:
-                report = json.load(f)
-
-            print(f"\n📄 Mission ID: {report['mission_id']}")
-            print(f"🎯 Target: {report['target']}")
-            print(f"📊 Confidence: {int(report['intelligence']['confidence_score'] * 100)}%")
-            print(f"🧠 Technologies: {', '.join(report['intelligence']['technologies'])}")
-            print(f"💥 Vulnerabilities: {', '.join(report['intelligence']['vulnerabilities'])}")
-            print(f"🎯 Attack Surfaces: {', '.join(report['intelligence']['attack_surfaces'])}")
-            print(f"🧰 Modules Deployed: {report['modules_deployed']}")
-            print(f"📌 Tactical Decisions: {report['tactical_decisions']}")
-            print(f"✅ Success Indicators: {', '.join(report.get('success_indicators', []))}")
-            print(f"🛡️ Recommendations: {', '.join(report.get('recommendations', []))}")
-
-        except Exception as e:
-            print(f"❌ Error reading report: {e}")
 
     def _display_mission_status(self):
         """Display current mission status"""
@@ -697,18 +620,7 @@ class GENERAL_SHADOW:
         print(f"⚔️  Tactical Decisions Made: {len(self.tactical_history)}")
         print(f"🔧 Active Modules: {len(self.active_modules)}")
         print(f"🥷 Stealth Mode: {'ACTIVE' if self.stealth_mode else 'INACTIVE'}")
-def start_console():
-    print("🧠 [GENERAL] Konzola pokrenuta. Kucaj komandu (moduli, log, exit):")
-    while True:
-        try:
-            cmd = input(">> ").strip()
-            if cmd.lower() in ("exit", "quit"):
-                print("👋 Zatvaram konzolu...")
-                break
-            process_command(cmd)
-        except Exception as e:
-            print(f"[ERROR] {e}")
-from ai_core.GENERAL_SHADOW import GENERAL_SHADOW
+
 def main():
     """Main entry point"""
     general = GENERAL_SHADOW()
@@ -716,8 +628,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    print("🧠 [GENERAL SHADOW] Pokrećem komandni centar...")
-    init_db()
-    load_modules()
-    monitor_missions()
-    start_console()

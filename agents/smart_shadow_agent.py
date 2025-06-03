@@ -13,15 +13,13 @@ import logging
 import hashlib
 from collections import defaultdict
 
-
 class SmartShadowAgent:
     """
     SmartShadowAgent - AI-driven agent koji pametno izvršava napade
     Koristi heuristiku, adaptivno učenje i kontekstualnu analizu
     """
     
-    def __init__(self, operator, mutation_engine=None):
-        self.operator = operator
+    def __init__(self, mutation_engine=None):
         self.mutation_engine = mutation_engine
         self.logger = logging.getLogger('SmartShadowAgent')
         
@@ -108,24 +106,34 @@ class SmartShadowAgent:
             r'waf',
             r'firewall'
         ]
-    def agent_callback(task):
-        from agents.smart_shadow_agent import SmartShadowAgent
-        agent = SmartShadowAgent(operator=None)
-        return agent.attack_target({
-            "target_url": task.payload.get("target"),
-            "mission_id": task.mission_id
-        }, ["SQLi", "XSS", "LFI", "SSRF"])
+
+    # agents/smart_shadow_agent.py
+
+from types import SimpleNamespace
+
+def agent_callback(task_data):
+    if isinstance(task_data, dict):
+        task_data = SimpleNamespace(**task_data)
+
+    agent = SmartShadowAgent()
+    return agent.attack_target(task_data, task_data.attack_types)
+
+
     def attack_target(self, target_data: Dict, attack_types: List[str] = None) -> Dict:
+        from types import SimpleNamespace
+
+        target = SimpleNamespace(**target_data)
+        if "target_url" not in target_data:
+            raise ValueError("Nema target_url u prosleđenim podacima")
         """
         Glavna funkcija za napad na target sa AI heuristikom
         """
         if not attack_types:
             attack_types = ["XSS", "SQLi", "SSRF", "LFI", "CommandInjection"]
         
-        self.logger.info(f"SmartShadow počinje napad na {target_data.get('target_url')}")
-        
+        self.logger.info(f"SmartShadow počinje napad na {target_data.target_url}")
         # Inicijalizuj kontekst za ovaj target
-        target_hash = self._get_target_hash(target_data["target_url"])
+        target_hash = self._get_target_hash(target_data.target_url)
         self.context_memory[target_hash] = {
             "start_time": datetime.now(),
             "requests_made": 0,
@@ -135,9 +143,8 @@ class SmartShadowAgent:
             "response_times": [],
             "error_patterns": []
         }
-        
         attack_results = {
-            "target_url": target_data["target_url"],
+            "target_url": target_data.target_url,
             "attack_types": attack_types,
             "total_requests": 0,
             "successful_attacks": 0,
@@ -655,37 +662,3 @@ class SmartShadowAgent:
         }
         return payloads.get(attack_type, [])
 
-# Test funkcionalnosti
-if __name__ == "__main__":
-    from operator import ShadowFoxOperator
-    
-    # Test setup
-    op = ShadowFoxOperator()
-    smart_agent = SmartShadowAgent(op)
-    
-    # Mock target data
-    target_data = {
-        "target_url": "https://httpbin.org/get?test=1",
-        "technologies": {"JavaScript": True, "PHP": True},
-        "headers": {"security_headers": {}},
-        "forms": [
-            {
-                "action": "https://httpbin.org/post",
-                "method": "POST",
-                "inputs": [{"name": "username", "type": "text"}]
-            }
-        ],
-        "endpoints": ["https://httpbin.org/admin"]
-    }
-    
-    mission_id = op.create_mission(target_data["target_url"], "Smart Shadow test")
-    results = smart_agent.attack_target(target_data, ["XSS"])
-    
-    print(json.dumps(results, indent=2, default=str))
-def agent_callback(task):
-    from agents.smart_shadow_agent import SmartShadowAgent
-    agent = SmartShadowAgent(operator=None)
-    return agent.attack_target({
-        "target_url": task.payload.get("target"),
-        "mission_id": task.mission_id
-    }, ["SQLi", "XSS", "LFI", "SSRF"])
